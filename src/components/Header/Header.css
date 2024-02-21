@@ -1,0 +1,139 @@
+header{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    background-color: #FFD6D6;
+    padding: 29px 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 6px 10.3px;
+}
+
+.navbar-brand {
+    margin: 0;
+    font-size: 40px;
+    font-family: "Monserrat", "sans-serif";
+    font-weight: 500;
+    padding: 0;
+}
+
+.navbar-nav {
+    margin: 0;
+    align-items: center;
+}
+
+.nav-item a, .dropdown li a {
+    cursor: pointer;
+    align-items: center;
+}
+
+.dropdown li {
+    margin-bottom: 5px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+}
+
+.dropdown-toggle, & .btn:hover, & .btn-show, .btn.show {
+    border: unset;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+button:focus:not(:focus-visible) {
+    outline: unset;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: unset;
+    margin-top: 0;
+}
+
+.nav-link {
+    font-size: 23px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    padding: 0 !important;
+    margin-right: 29px;
+    color: black;
+}
+
+.dropdown-menu .nav-link{
+    font-size: 15px;
+}
+
+.flags .dropdown-menu {
+    border: none;
+    background-color: unset;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:not(:hover) .dropdown-menu {
+    display: none;
+}
+.dropdown li:active .dropdown-menu .dropdown{
+    display: none;
+}
+
+.navbar-toggler {
+    font-size: smaller;
+}
+
+.active {
+    position: relative;
+}
+
+.dropdown-menu .nav-link.active::after{
+    content: " ";
+    background-color: black;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+    color: black;
+    left: 0;
+    top: 21px;
+    box-shadow: black 0 3px 5px;
+}
+
+.dropdown-toggle::after {
+    border-top: 0;
+}
+
+.dropdown li a{
+    width: fit-content;
+    margin-left: 10px;
+    padding: 0;
+}
+
+img {
+    width: 48px;
+}
+
+.dropdown-item.active {
+    background-color: unset;
+    color: unset;
+}
+
+.nav-link.active::after {
+    content: " ";
+    background-color: black;
+    height: 1px;
+    position: absolute;
+    width: 104%;
+    color: black;
+    left: 0;
+    top: 29px;
+    box-shadow: black 0 3px 5px;
+    margin-left: -2px;
+}
+
+.dropdown-menu li img{
+    cursor: pointer;
+}
