@@ -51,12 +51,13 @@ button:focus:not(:focus-visible) {
     font-family: "Playfair Display", serif;
     font-weight: 400;
     padding: 0 !important;
-    margin-right: 29px;
+    margin-right: 25px;
     color: black;
 }
 
 .dropdown-menu .nav-link{
     font-size: 15px;
+    width: max-content;
 }
 
 .flags .dropdown-menu {

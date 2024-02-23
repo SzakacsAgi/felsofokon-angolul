@@ -1,6 +1,12 @@
 import {createContext, useReducer} from "react";
 const initialLanguage = "HUN";
-const initialPage = "home";
+const initialPage = detectInitialCurrentPage();
+
+function detectInitialCurrentPage(){
+    const currentPage = window.location.pathname.slice(1);
+    return currentPage ? currentPage : "home";
+}
+
 export const HeaderContext = createContext({
     currentPage: "",
     currentLanguage: "",
@@ -25,9 +31,13 @@ function headerReducer(state, action){
 }
 
 export default function HeaderContextProvider({children}){
-
-
     const [headerState, headerStateDispatcher] = useReducer(headerReducer, {currentPage: initialPage, currentLanguage: initialLanguage});
+    const contextValue = {
+        currentPage: headerState.currentPage,
+        currentLanguage: headerState.currentLanguage,
+        onMenuPointClick: onMenuPointClick,
+        handleFlagClick: handleFlagClick
+    }
 
     function onMenuPointClick(clickedMenuPoint) {
         headerStateDispatcher({
@@ -42,14 +52,6 @@ export default function HeaderContextProvider({children}){
             payload:clickedFlag
         })
     }
-
-    const contextValue = {
-        currentPage: headerState.currentPage,
-        currentLanguage: headerState.currentLanguage,
-        onMenuPointClick: onMenuPointClick,
-        handleFlagClick: handleFlagClick
-    }
-
 
     return <HeaderContext.Provider value={contextValue}>
         {children}

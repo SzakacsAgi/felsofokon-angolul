@@ -9,7 +9,7 @@ import AboutMe from "./components/AboutMe.jsx";
 import Services from "./components/Services.jsx";
 import Contact from "./components/Contact.jsx";
 import Blog from "./components/Blog.jsx";
-import ServiceDetails from "./components/ServiceDetails.jsx";
+import ServiceDetails from "./components/OfferedLessonDetails.jsx";
 
 function App() {
   return (

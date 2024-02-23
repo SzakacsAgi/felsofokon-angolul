@@ -5,12 +5,19 @@ import hungaryFlag from "../../assets/flags/hungary.png";
 import franceFlag from "../../assets/flags/france.jpg";
 import englishFlag from "../../assets/flags/english.png";
 
+const mapLanguageToFlag = [{language: "HUN", flag:hungaryFlag}, {language: "FR", flag:franceFlag}, {language: "ENG", flag:englishFlag}];
+function detectNotChosenLanguages(currentLanguage){
+    return mapLanguageToFlag.filter(language => {return language.language !== currentLanguage});
+}
+
+function detectChosenLanguage(currentLanguage){
+    return mapLanguageToFlag.filter(language => {return language.language === currentLanguage});
+}
+
 export default function FlagNavItem(){
     const {currentLanguage, handleFlagClick} = useContext(HeaderContext);
-
-    const mapLanguageToFlag = [{language: "HUN", flag:hungaryFlag}, {language: "FR", flag:franceFlag}, {language: "ENG", flag:englishFlag}]
-    const notChosenLanguages = mapLanguageToFlag.filter(language => {return language.language !== currentLanguage});
-    const chosenLanguage = mapLanguageToFlag.filter(language => {return language.language === currentLanguage});
+    const notChosenLanguages = detectNotChosenLanguages(currentLanguage);
+    const chosenLanguage = detectChosenLanguage(currentLanguage);
 
     return (
         <div className="flags">
