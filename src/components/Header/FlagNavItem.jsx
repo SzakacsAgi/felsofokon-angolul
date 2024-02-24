@@ -1,5 +1,6 @@
 import {useHeaderContext} from "../../store/contexts-provider.jsx";
 
+
 import hungaryFlag from "../../assets/flags/hungary.png";
 import franceFlag from "../../assets/flags/france.jpg";
 import englishFlag from "../../assets/flags/english.png";
@@ -15,6 +16,7 @@ function detectChosenLanguage(currentLanguage){
 
 export default function FlagNavItem(){
     const {currentLanguage, handleFlagClick} = useHeaderContext();
+
     const notChosenLanguages = detectNotChosenLanguages(currentLanguage);
     const chosenLanguage = detectChosenLanguage(currentLanguage);
 

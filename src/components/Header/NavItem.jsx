@@ -1,7 +1,6 @@
 import {Link} from "react-router-dom";
 import {useHeaderContext} from "../../store/contexts-provider.jsx";
 
-
 function getPathName(object){
     return Object.keys(object)[0];
 }
