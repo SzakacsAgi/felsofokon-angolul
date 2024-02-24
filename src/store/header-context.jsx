@@ -1,11 +1,8 @@
 import {createContext, useReducer} from "react";
-const initialLanguage = "HUN";
-const initialPage = detectInitialCurrentPage();
+import * as initialValueProvider from "./initial-value-provider"
 
-function detectInitialCurrentPage(){
-    const currentPage = window.location.pathname.slice(1);
-    return currentPage ? currentPage : "home";
-}
+const initialLanguage = initialValueProvider.detectInitialCurrentLanguage();
+const initialPage = initialValueProvider.detectInitialCurrentPage();
 
 export const HeaderContext = createContext({
     currentPage: "",
@@ -23,6 +20,8 @@ function headerReducer(state, action){
     }
 
     if (action.type === 'FLAG_CLICK') {
+        initialValueProvider.setLanguageToStorage("LOCAL", initialValueProvider.getLanguageFromStorage("SESSION"));
+        initialValueProvider.setLanguageToStorage("SESSION", action.payload);
         return {
             ...state,
             currentLanguage: action.payload
