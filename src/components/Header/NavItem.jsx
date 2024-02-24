@@ -1,13 +1,12 @@
 import {Link} from "react-router-dom";
-import {useContext} from "react";
-import {HeaderContext} from "../../store/header-context.jsx";
+import {useHeaderContext} from "../../store/contexts-provider.jsx";
 
 function getPathName(object){
     return Object.keys(object)[0];
 }
 
 export default function NavItem({children, pageName, menuPoints}){
-    const {currentPage, onMenuPointClick} = useContext(HeaderContext);
+    const {currentPage, onMenuPointClick} = useHeaderContext();
 
     return (
         <li className={`${menuPoints ? "nav-item dropdown" : "nav-item"}`}>
