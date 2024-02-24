@@ -9,6 +9,8 @@ export function getLanguageFromStorage(storage){
             return sessionStorage.getItem("lang");
         case "LOCAL":
             return localStorage.getItem("lang");
+        default:
+            console.log("Storage is not provided!");
     }
 }
 
@@ -20,6 +22,8 @@ export function setLanguageToStorage(storage, value){
         case "LOCAL":
             localStorage.setItem("lang", value);
             break;
+        default:
+            console.log("Storage is not provided!");
     }
 }
 
@@ -31,7 +35,7 @@ export function detectInitialCurrentLanguage(){
         return currentLanguage;
     }
     else if(getLanguageFromStorage("LOCAL")){
-        setLanguageToStorage("SESSION", getLanguageFromStorage("LOCAL"))
+        setLanguageToStorage("SESSION", getLanguageFromStorage("LOCAL"));
         return getLanguageFromStorage("SESSION");
 
     }else{
