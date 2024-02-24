@@ -1,8 +1,8 @@
 import {createContext, useReducer} from "react";
 import * as initialValueProvider from "./initial-value-provider"
 
-const initialLanguage = initialValueProvider.detectInitialCurrentLanguage();
-const initialPage = initialValueProvider.detectInitialCurrentPage();
+const initialLanguage = initialValueProvider.detectInitialLanguage();
+const initialPage = initialValueProvider.detectInitialPage();
 
 export const HeaderContext = createContext({
     currentPage: "",

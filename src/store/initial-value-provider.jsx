@@ -1,14 +1,20 @@
-export function detectInitialCurrentPage(){
-    const currentPage = window.location.pathname.slice(1);
-    return currentPage ? currentPage : "home";
+const languages = {
+    ENGLISH : "ENG",
+    HUNGARIAN: "HUN",
+    FRENCH: "FR"
 }
+const defaultLanguage = languages.ENGLISH;
+const defaultPage = "home";
+const languageKey = "lang";
+const localKey = "LOCAL";
+const sessionKey = "SESSION";
 
 export function getLanguageFromStorage(storage){
     switch (storage){
-        case "SESSION":
-            return sessionStorage.getItem("lang");
-        case "LOCAL":
-            return localStorage.getItem("lang");
+        case sessionKey:
+            return sessionStorage.getItem(languageKey);
+        case localKey:
+            return localStorage.getItem(languageKey);
         default:
             console.log("Storage is not provided!");
     }
@@ -16,32 +22,35 @@ export function getLanguageFromStorage(storage){
 
 export function setLanguageToStorage(storage, value){
     switch (storage){
-        case "SESSION":
-            sessionStorage.setItem("lang", value);
+        case sessionKey:
+            sessionStorage.setItem(languageKey, value);
             break;
-        case "LOCAL":
-            localStorage.setItem("lang", value);
+        case localKey:
+            localStorage.setItem(languageKey, value);
             break;
         default:
             console.log("Storage is not provided!");
     }
 }
 
-export function detectInitialCurrentLanguage(){
-    const defaultLanguage = "ENG";
-    const currentLanguage = getLanguageFromStorage("SESSION");
+export function detectInitialLanguage(){
+    const currentLanguage = getLanguageFromStorage(sessionKey);
 
     if(currentLanguage){
         return currentLanguage;
     }
-    else if(getLanguageFromStorage("LOCAL")){
-        setLanguageToStorage("SESSION", getLanguageFromStorage("LOCAL"));
-        return getLanguageFromStorage("SESSION");
-
-    }else{
-        setLanguageToStorage("LOCAL", defaultLanguage);
-        setLanguageToStorage("SESSION", defaultLanguage);
+    else if(getLanguageFromStorage(localKey)){
+        setLanguageToStorage(sessionKey, getLanguageFromStorage(localKey));
+        return getLanguageFromStorage(sessionKey);
+    }
+    else{
+        setLanguageToStorage(localKey, defaultLanguage);
+        setLanguageToStorage(sessionKey, defaultLanguage);
         return defaultLanguage;
     }
+}
 
+export function detectInitialPage(){
+    const currentPage = window.location.pathname.slice(1);
+    return currentPage ? currentPage : defaultPage;
 }

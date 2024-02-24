@@ -31,7 +31,7 @@ export default function FlagNavItem(){
                     {notChosenLanguages.map(language => {
                         return <li key={language.language}
                                    onClick={() => handleFlagClick(language.language)}>
-                            <img src={language.flag} alt="France flag"/>
+                            <img src={language.flag} alt={`${language} flag`}/>
                         </li>
                     })}
                 </ul>
