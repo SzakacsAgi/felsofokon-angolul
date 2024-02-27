@@ -1,7 +1,5 @@
 import './App.css';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import Header from "./components/Header/Header";
-
 import HeaderContextProvider from "./store/header-context.jsx";
 import Home from "./components/Home.jsx";
 import Prices from "./components/Prices.jsx";
@@ -10,6 +8,7 @@ import Services from "./components/Services.jsx";
 import Contact from "./components/Contact.jsx";
 import Blog from "./components/Blog.jsx";
 import ServiceDetails from "./components/OfferedLessonDetails.jsx";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
