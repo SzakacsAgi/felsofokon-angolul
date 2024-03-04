@@ -46,6 +46,6 @@
     bottom: -7px;
 }
 
-.section > main{
+.section > div{
     z-index: 1;
 }

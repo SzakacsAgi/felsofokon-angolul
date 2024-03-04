@@ -1,26 +1,22 @@
 import classes from './Home.module.css';
+import DOMPurify from 'dompurify';
+import {useHeaderContext} from "../store/contexts-provider";
 
-export default function Home(){
+function isErrorWasOccurred(data){
+    return typeof data === "string";
+}
+
+export default function Home({data}){
+    const {currentLanguage} = useHeaderContext();
+    const isError = isErrorWasOccurred(data)
+    const aboutMeSectionData = isError ? data : data.aboutMe[currentLanguage];
+
     return (
         <>
             <section className={classes.section}>
-                <main className={classes.para}>
-                    <p>Lorem ipsum dolor sit amet consectetur. Dui aliquam libero lobortis vitae mauris sed diam
-                        feugiat.
-                        Lacus elementum nisi dignissim semper sit morbi dictum quam. Lectus sed cras ac sit tincidunt
-                        nam
-                        tellus. Cursus fringilla condimentum sit aliquam nisl.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur. Dui aliquam libero lobortis vitae mauris sed diam
-                        feugiat.
-                        Lacus elementum nisi dignissim semper sit morbi dictum quam. Lectus sed cras ac sit tincidunt
-                        nam
-                        tellus. Cursus fringilla condimentum sit aliquam nisl.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur. Dui aliquam libero lobortis vitae mauris sed diam
-                        feugiat.
-                        Lacus elementum nisi dignissim semper sit morbi dictum quam. Lectus sed cras ac sit tincidunt
-                        nam
-                        tellus. Cursus fringilla condimentum sit aliquam nisl.</p>
-                </main>
+                <div className={classes.para}>
+                    <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(aboutMeSectionData)}}/>
+                </div>
                 <div className={classes.img}/>
             </section>
             <section>

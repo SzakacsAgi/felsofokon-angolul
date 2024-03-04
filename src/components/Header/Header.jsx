@@ -1,7 +1,7 @@
 import './Header.css'
 import NavItem from "./NavItem";
 import FlagNavItem from "./FlagNavItem";
-import {HEADER_TEXT} from "../../data";
+import {HEADER_TEXT} from "../../data/data";
 import {useHeaderContext} from "../../store/contexts-provider.jsx";
 
 export default function Header(){
