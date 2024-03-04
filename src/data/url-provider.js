@@ -32,7 +32,7 @@ export default class UrlProvider {
                 URL = "https://dummyjson.com/comments";
                 break;
             default:
-                URL = "Page was not defined";
+                URL = "/error";
         }
         return URL;
     }

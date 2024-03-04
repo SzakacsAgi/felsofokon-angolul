@@ -6,14 +6,15 @@ import OfferedLessonDetails from "./OfferedLessonDetails";
 import Prices from "./Prices";
 import Contact from "./Contact";
 import Blog from "./Blog";
+import NotFound from "./Header/NotFound";
 
-function Factory({page, error, errorText, data}){
-    function detectMainContent(page, error, errorText, data){
+function Factory({page, errorText, data}){
+    function detectMainContent(page, errorText, data){
         let mainContent = null;
         switch (page){
             case "home":
             case "/":
-                mainContent =  <Home data={error ? errorText : data}/>;
+                mainContent = <Home data={ errorText ? errorText : data}/>;
                 break;
             case "about":
                 mainContent = <AboutMe/>;
@@ -36,12 +37,12 @@ function Factory({page, error, errorText, data}){
                 mainContent = <Blog/>;
                 break;
             default:
-                mainContent = <h1>Page was not defined</h1>;
+                mainContent = <NotFound/>;
         }
         return mainContent;
     }
 
-    return detectMainContent(page, error, errorText, data)
+    return detectMainContent(page, errorText, data)
 }
 
 const MainContentFactory = createFactory(Factory);

@@ -32,9 +32,9 @@ export const HEADER_TEXT = {
 }
 
 export const ERROR_TEXT = {
-    "HUN": "A tartalom betöltése sikertelen, kérlek próbáld újra később!",
-    "ENG" : "The content loading was unsuccessful, please try again later!",
-    "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard !"
+    "HUN": "A tartalom betöltése sikertelen, kérlek próbáld újra később! \n Ha a hiba tartósan fennáll kérlek tudasd velem a bugreport@gmail.com email címen a következő szám megírásával: " ,
+    "ENG" : "The content loading was unsuccessful, please try again later! \n If the issue persists, please inform me by writing to the email address bugreport@gmail.com with the following code: ",
+    "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard! \n Si le problème persiste, veuillez me le faire savoir en écrivant à l'adresse e-mail bugreport@gmail.com avec le code suivant: "
 }
 
 export const DUMMY_HOMEPAGE_DATA = {

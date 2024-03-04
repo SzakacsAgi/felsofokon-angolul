@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import HeaderContextProvider from "./store/header-context.jsx";
+import HeaderContextProvider from "./store/header-context";
 
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent";
@@ -21,6 +21,7 @@ function App() {
               <Route path="/general-english-lesson" element={<MainContent/>}/>
               <Route path="/matura-examination" element={<MainContent/>}/>
               <Route path="/translation" element={<MainContent/>}/>
+              <Route path="*" element={<MainContent/>}/>
             </Routes>
           </HeaderContextProvider>
       </Router>

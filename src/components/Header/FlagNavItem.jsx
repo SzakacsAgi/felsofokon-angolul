@@ -1,4 +1,4 @@
-import {useHeaderContext} from "../../store/contexts-provider.jsx";
+import {useHeaderContext} from "../../store/contexts-provider";
 
 
 import hungaryFlag from "../../assets/flags/hungary.png";

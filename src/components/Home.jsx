@@ -2,13 +2,13 @@ import classes from './Home.module.css';
 import DOMPurify from 'dompurify';
 import {useHeaderContext} from "../store/contexts-provider";
 
-function isErrorWasOccurred(data){
+function isErrorOccurred(data){
     return typeof data === "string";
 }
 
 export default function Home({data}){
     const {currentLanguage} = useHeaderContext();
-    const isError = isErrorWasOccurred(data)
+    const isError = isErrorOccurred(data);
     const aboutMeSectionData = isError ? data : data.aboutMe[currentLanguage];
 
     return (
@@ -18,11 +18,6 @@ export default function Home({data}){
                     <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(aboutMeSectionData)}}/>
                 </div>
                 <div className={classes.img}/>
-            </section>
-            <section>
-                <div>
-                    Szolgáltatásaim
-                </div>
             </section>
         </>
     )

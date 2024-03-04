@@ -1,35 +1,42 @@
 import {useHeaderContext} from "../store/contexts-provider";
 import {useEffect, useState} from "react";
-import {ERROR_TEXT} from "../data/data";
+import {ERROR_TEXT} from "../data/static-data";
 import MainContentFactory from "./Factory";
 import {getPageData} from "../data/page-data-provider";
 
-function isDataRequestHappened(data, error){
-    return data || error;
+function isFetchFinished(data, error){
+    return data || Object.values(error).length > 0;
+}
+
+function isErrorOccurred(error){
+    return Object.values(error).length !== 0;
 }
 
 export default function MainContent() {
     const {currentLanguage, currentPage} = useHeaderContext();
-    const errorText = ERROR_TEXT[currentLanguage];
+    let errorText = ERROR_TEXT[currentLanguage];
     const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState({});
 
-    useEffect( () => {
-        const fetchData = async () => {
-            try{
-                const result = await getPageData(currentPage);
-                setData(result);
-            }catch (error) {
-                setError(error);
+    useEffect( ()  => {
+        async function fetchData(){
+            try {
+                setData(null);
+                setError({});
+                const data = await getPageData(currentPage);
+                if (data) {
+                    setData(data);
+                }
+            } catch (error) {
+                setError({ message: error.message, statusCode: error.cause });
             }
-        };
-
-        if(!data && !error){
-            fetchData();
         }
-    }, [data, error, currentLanguage, currentPage]);
+        fetchData();
+    }, [currentPage, setError]);
 
-    if(isDataRequestHappened(data, error)){
-        return <MainContentFactory page={currentPage} error={error} errorText={errorText} data={data}/>
-    }
+    return <>
+        { isFetchFinished(data, error)
+            ? <MainContentFactory page={currentPage} errorText={isErrorOccurred(error) && (errorText+=error.statusCode)} data={data}/>
+            :  <p>Loading...</p> }
+    </>
 }
