@@ -1,16 +1,17 @@
 import {DUMMY_HOMEPAGE_DATA} from "./static-data";
 import UrlProvider from "./url-provider";
+const urlProvider = new UrlProvider();
 
-export async function getPageData(page) {
+export async function getPageContentData(page) {
     const data = DUMMY_HOMEPAGE_DATA;
-    const URL = new UrlProvider(page).getURL();
+    const url = urlProvider.getApiUrl(page);
     try{
-        const response = await fetch(URL);
+        const response = await fetch(url);
         if (response.ok){
             return await data;
         }
         else if (!response.ok) {
-            const error = new Error("Response was not 200");
+            const error = new Error(`Response was not ok. Status code: ${response.status}`);
             error.cause = response.status;
             throw error;
         }
