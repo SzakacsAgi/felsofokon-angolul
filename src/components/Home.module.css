@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/montserrat:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 .img{
     min-width:335px;
     min-height:502px;
@@ -12,7 +21,7 @@
     box-sizing: content-box;
 }
 
-.section{
+.section:first-of-type{
     display: flex;
     justify-content: center;
     position: relative;
@@ -21,6 +30,7 @@
     align-items: center;
     min-height: calc(100vh - 120px);
     padding-bottom: 78px;
+    flex-direction: row;
 }
 
 .para{
@@ -39,8 +49,15 @@
     margin-bottom: 10px;
 }
 
-.section::after{
-    content: url("../assets/separator/Triangle.svg");
+.section:nth-child(even)::after{
+    content: url("../assets/separator/Triangle-grey.svg");
+    position: absolute;
+    width: 100%;
+    bottom: -7px;
+}
+
+.section:nth-child(odd)::after{
+    content: url("../assets/separator/Triangle-white.svg");
     position: absolute;
     width: 100%;
     bottom: -7px;
@@ -48,4 +65,62 @@
 
 .section > div{
     z-index: 1;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+    background-color: white;
+    align-items: center;
+    min-height: 800px;
+    padding-bottom: 192px;
+    flex-direction: column;
+}
+
+.sectionTitle{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-size: 44px;
+    margin-bottom: 80px;
+    font-family: 'Montserrat', "sans-serif";
+    font-weight: 300;
+}
+
+.servicesContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.serviceCard{
+    max-width: 300px;
+    background-color: #d9d9d9;
+    padding: 30px 20px;
+    border-radius: 43.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.25) 6px 7px 5px;
+}
+
+.serviceCard a{
+    align-self: flex-start;
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+    background-color: #9b9090;
+    border-radius: 20px;
+    padding:7px 17px;
+}
+
+.serviceCard div{
+    text-align: center;
+}
+
+.serviceCard:not(:last-of-type){
+    margin-right: 20px;
 }
