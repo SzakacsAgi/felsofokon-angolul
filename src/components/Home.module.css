@@ -1,0 +1,51 @@
+.img{
+    min-width:335px;
+    min-height:502px;
+    width: auto;
+    height: auto;
+    background-image: url("../assets/about-home.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    border: 3px solid black;
+    box-sizing: content-box;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+    background-color: #d9d9d9;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding-bottom: 78px;
+}
+
+.para{
+    font-size: 20px;
+    max-width: 450px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    margin-right: 68px;
+}
+
+.para p{
+    margin-bottom: 0;
+}
+
+.para p:not(p:last-child){
+    margin-bottom: 10px;
+}
+
+.section::after{
+    content: url("../assets/separator/Triangle.svg");
+    position: absolute;
+    width: 100%;
+    bottom: -7px;
+}
+
+.section > div{
+    z-index: 1;
+}

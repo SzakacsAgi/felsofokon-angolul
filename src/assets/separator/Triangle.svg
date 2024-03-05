@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -3 1926 267" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter id="drop-shadow">
+            <feDropShadow dx="0" dy="20" stdDeviation="10.3" flood-color="rgb(0 0 0 / 0.25)" />
+        </filter>
+    </defs>
+
+    <g id="deeditor_bgCarrier" stroke-width="0">
+        <rect id="dee_c_e" x="-10" y="10" width="1978" height="267" rx="0" fill="white"></rect>
+    </g>
+
+    <path d="M1990 -2.86102e-06L-56 -2.86102e-06L967 238L1990 -2.86102e-06Z" fill="#d9d9d9" filter="url(#drop-shadow)"></path>
+</svg>
