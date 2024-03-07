@@ -56,11 +56,19 @@
     bottom: -7px;
 }
 
+.section:nth-child(even){
+    background-color: #d9d9d9;
+}
+
 .section:nth-child(odd)::after{
     content: url("../assets/separator/Triangle-white.svg");
     position: absolute;
     width: 100%;
     bottom: -7px;
+}
+
+.section:nth-child(odd){
+    background-color: white;
 }
 
 .section > div{
@@ -71,11 +79,9 @@
     display: flex;
     justify-content: center;
     position: relative;
-    flex: 1;
-    background-color: white;
     align-items: center;
-    min-height: 800px;
-    padding-bottom: 192px;
+    min-height: 815px;
+    padding-bottom: 210px;
     flex-direction: column;
 }
 
