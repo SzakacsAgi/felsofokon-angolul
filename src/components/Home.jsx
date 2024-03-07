@@ -3,11 +3,11 @@ import DOMPurify from 'dompurify';
 import {useHeaderContext} from "../store/contexts-provider";
 import ReferencesSlider from "./ReferencesSlider";
 import SectionTitle from "./SectionTitle";
+import FAQ from "./FAQ";
 
 function isErrorOccurred(pageContent){
     return typeof pageContent === "string";
 }
-
 
 function sanitizeHTMLContent(content){
     return {__html: DOMPurify.sanitize(content)}
@@ -19,6 +19,7 @@ export default function Home({pageContent}){
     const aboutMeSectionContent = isError ? pageContent : pageContent.aboutMe[currentLanguage];
     const servicesSectionContent = isError ? pageContent : pageContent.services[currentLanguage];
     const referencesSectionContent = isError ? pageContent : pageContent.references[currentLanguage];
+    const faqSectionContent = isError ? pageContent : pageContent.faq[currentLanguage];
 
     return (
         <>
@@ -45,6 +46,14 @@ export default function Home({pageContent}){
                 <div className="slider">
                     {isError ? <div>{pageContent}</div> :
                         <ReferencesSlider sliderContent={referencesSectionContent.data}></ReferencesSlider>
+                    }
+                </div>
+            </section>
+            <section className={classes.section}>
+                <SectionTitle className={classes.sectionTitle} title={faqSectionContent.title}/>
+                <div className="faq">
+                    {isError ? <div>{pageContent}</div> :
+                        <FAQ faqContent={faqSectionContent.data}/>
                     }
                 </div>
             </section>

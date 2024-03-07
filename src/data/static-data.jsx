@@ -169,6 +169,63 @@ export const DUMMY_HOMEPAGE_DATA = {
                 }
             ]
         }
+    },
+    faq:{
+        HUN: {
+            title: "Gyakran ismételt kérdések",
+            data: [
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p className=\"question\">Miért érdemes online nyelvtanárt választani a hagyományos osztályteremmel szemben?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Az online nyelvtanítás rugalmasságot kínál a diákoknak, akik saját tempójukban tanulhatnak, könnyebben hozzáférhetnek a tananyaghoz, és interaktív módon gyakorolhatnak akár a világ bármely részéről. Az online tanár személyre szabott tananyagot és támogatást nyújthat, ami segíthet a hatékonyabb tanulásban.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p className=\"question\">Hogyan biztosítod az interaktivitást az online nyelvtanítás során?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Az interaktivitás eléréséhez használok különböző digitális eszközöket és platformokat, például videohívásokat, interaktív táblákat és online játékokat. Az élő beszélgetéseken és gyakorlatokon keresztül a diákoknak lehetőségük van a nyelvet gyakorolni, valamint azonnali visszajelzést kapnak a tanulási folyamatukról.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p className=\"question\">Hogyan segíted a diákokat a motiváció fenntartásában az online tanulás során?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Motivációt támogató módszerekkel dolgozom, például változatos tananyaggal, érdekes témákkal és interaktív órákkal. Emellett célkitűzéseket állapítok meg a diákok számára, és rendszeresen nyújtok visszajelzést az elért eredményekről. Az interaktív és szórakoztató tanítási módszerek segítenek fenntartani a diákok érdeklődését és motivációját az online nyelvtanulás során.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p className=\"question\">Miért érdemes online nyelvtanárt választani a hagyományos osztályteremmel szemben?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Az online nyelvtanítás rugalmasságot kínál a diákoknak, akik saját tempójukban tanulhatnak, könnyebben hozzáférhetnek a tananyaghoz, és interaktív módon gyakorolhatnak akár a világ bármely részéről. Az online tanár személyre szabott tananyagot és támogatást nyújthat, ami segíthet a hatékonyabb tanulásban.</p></div>"
+                }
+            ]
+        },
+        ENG: {
+            title: "Frequently asked question",
+            data: [
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">Why choose an online language teacher over a traditional classroom?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Online language teaching offers flexibility for students to learn at their own pace, easy access to study materials, and interactive practice from anywhere in the world. An online teacher can provide personalized materials and support, contributing to more effective learning.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">How do you ensure interactivity in online language teaching?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">To achieve interactivity, I use various digital tools and platforms such as video calls, interactive boards, and online games. Through live conversations and exercises, students have the opportunity to practice the language and receive immediate feedback on their learning process.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">How do you help students maintain motivation during online learning?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">I work with motivational methods, including diverse study materials, interesting topics, and interactive lessons. Additionally, I set goals for students and provide regular feedback on their achievements. Interactive and enjoyable teaching methods help sustain students' interest and motivation in online language learning.</p></div>"
+                }
 
+            ]
+        },
+        FR: {
+            title: "Questions fréquemment posées",
+            data: [
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">Pourquoi choisir un professeur de langue en ligne plutôt qu'une salle de classe traditionnelle ?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">L'enseignement des langues en ligne offre une flexibilité aux étudiants pour apprendre à leur propre rythme, un accès facile aux supports de cours et une pratique interactive de n'importe où dans le monde. Un enseignant en ligne peut fournir des supports personnalisés et un soutien, contribuant à un apprentissage plus efficace.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">Comment assurez-vous l'interactivité dans l'enseignement des langues en ligne ?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Pour garantir l'interactivité, j'utilise divers outils numériques et plateformes tels que les appels vidéo, les tableaux interactifs et les jeux en ligne. À travers des conversations en direct et des exercices, les étudiants ont l'opportunité de pratiquer la langue et de recevoir des retours immédiats sur leur processus d'apprentissage.</p></div>"
+                },
+                {
+                    question: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"question\">Comment aidez-vous les étudiants à maintenir leur motivation pendant l'apprentissage en ligne ?</p></div>",
+                    answer: "<div style=\"font-family: 'Roboto', palatino, sans-serif; color: #333; line-height: 1.6;\"><p class=\"answer\">Je travaille avec des méthodes de motivation, notamment des supports d'étude variés, des sujets intéressants et des cours interactifs. De plus, je fixe des objectifs pour les étudiants et leur donne régulièrement des retours sur leurs réalisations. Les méthodes d'enseignement interactives et agréables contribuent à maintenir l'intérêt et la motivation des étudiants dans l'apprentissage des langues en ligne.</p></div>"
+                }
+            ]
+        }
     }
 }
