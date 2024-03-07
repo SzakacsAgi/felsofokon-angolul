@@ -1,13 +1,13 @@
 import classes from './Home.module.css';
 import DOMPurify from 'dompurify';
 import {useHeaderContext} from "../store/contexts-provider";
-import SectionTitle from "./sectionTitle";
+import SectionTitle from "./SectionTitle";
 
 function isErrorOccurred(pageContent){
     return typeof pageContent === "string";
 }
 
-function getInnerHtml(content){
+function sanitizeHTMLContent(content){
     return {__html: DOMPurify.sanitize(content)}
 }
 
@@ -21,7 +21,7 @@ export default function Home({pageContent}){
         <>
             <section className={classes.section}>
                 <div className={classes.para}>
-                    <div dangerouslySetInnerHTML={getInnerHtml(aboutMeSectionContent)}/>
+                    <div dangerouslySetInnerHTML={sanitizeHTMLContent(aboutMeSectionContent)}/>
                 </div>
                 <div className={classes.img}/>
             </section>
@@ -30,8 +30,8 @@ export default function Home({pageContent}){
                 <div className={classes.servicesContainer}>
                     {servicesSectionContent.data.map(service =>{
                         return <div className={classes.serviceCard}>
-                            <div dangerouslySetInnerHTML={getInnerHtml(service.serviceTitle)}></div>
-                            <div dangerouslySetInnerHTML={getInnerHtml(service.description)}></div>
+                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.serviceTitle)}></div>
+                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.description)}></div>
                             <a href={service.navigation}>{servicesSectionContent.detailsText}</a>
                         </div>
                     })}
