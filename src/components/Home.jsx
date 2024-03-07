@@ -1,14 +1,15 @@
 import classes from './Home.module.css';
 import DOMPurify from 'dompurify';
 import {useHeaderContext} from "../store/contexts-provider";
-import SectionTitle from "./sectionTitle";
 import ReferencesSlider from "./ReferencesSlider";
+import SectionTitle from "./SectionTitle";
 
 function isErrorOccurred(pageContent){
     return typeof pageContent === "string";
 }
 
-function getInnerHtml(content){
+
+function sanitizeHTMLContent(content){
     return {__html: DOMPurify.sanitize(content)}
 }
 
@@ -23,7 +24,7 @@ export default function Home({pageContent}){
         <>
             <section className={classes.section}>
                 <div className={classes.para}>
-                    <div dangerouslySetInnerHTML={getInnerHtml(aboutMeSectionContent)}/>
+                    <div dangerouslySetInnerHTML={sanitizeHTMLContent(aboutMeSectionContent)}/>
                 </div>
                 <div className={classes.img}/>
             </section>

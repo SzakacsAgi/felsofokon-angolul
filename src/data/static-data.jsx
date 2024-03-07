@@ -169,5 +169,6 @@ export const DUMMY_HOMEPAGE_DATA = {
                 }
             ]
         }
+
     }
 }
