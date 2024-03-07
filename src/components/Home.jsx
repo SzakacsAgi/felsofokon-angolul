@@ -33,8 +33,8 @@ export default function Home({pageContent}){
                 <div className={classes.servicesContainer}>
                     {isError ? <div>{pageContent}</div> : servicesSectionContent.data.map(service => {
                         return <div className={classes.serviceCard}>
-                            <div dangerouslySetInnerHTML={getInnerHtml(service.serviceTitle)}></div>
-                            <div dangerouslySetInnerHTML={getInnerHtml(service.description)}></div>
+                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.serviceTitle)}></div>
+                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.description)}></div>
                             <a href={service.navigation}>{servicesSectionContent.detailsText}</a>
                         </div>
                     })}
