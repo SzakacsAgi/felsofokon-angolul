@@ -6,7 +6,7 @@
     </defs>
 
     <g id="deeditor_bgCarrier" stroke-width="0">
-        <rect id="dee_c_e" x="-10" y="10" width="1978" height="267" rx="0" fill="white"></rect>
+        <rect id="dee_c_e" x="-10" y="10" width="1978" height="267" rx="0" fill="#d9d9d9"></rect>
     </g>
 
     <path d="M1990 -2.86102e-06L-56 -2.86102e-06L967 238L1990 -2.86102e-06Z" fill="white" filter="url(#drop-shadow)"></path>

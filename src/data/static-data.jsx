@@ -112,5 +112,63 @@ export const DUMMY_HOMEPAGE_DATA = {
                 }
             ],
         }
+    },
+    references:{
+        HUN: {
+            title: "Referenciáim",
+            data: [
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Nagyon hálás vagyok Anna tanárnőnek a kiváló nyelvoktatásért! A leckéi mindig érdekesek és interaktívak voltak, és a türelme segített nekem magabiztosan megtanulni a magyar nyelvet. Köszönöm, Anna, a támogatásodat és a szakértelmedet!</p>",
+                    name:"Donko Ilona"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Igen elégedett vagyok Anna tanárnővel! Rendkívül elkötelezett a diákok fejlődése iránt, és mindig készen áll, hogy segítsen. Az  órái mindig inspirálóak, és könnyen érthetővé teszi a magyar nyelvet. Köszönöm, Anna, hogy ilyen remek tanár vagy!</p>",
+                    name: "Fodor Ildikó"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Csak dicsérni tudom Anna tanárnőt a szaktudásáért és a lelkesedéséért! Mindig képes volt érdekessé tenni a nyelvórát, és a kreatív módszerei segítettek abban, hogy gyorsabban elsajátítsam a magyar nyelvet. Nagyon köszönöm, Anna, hogy ilyen motiváló és segítőkész tanár vagy!</p>",
+                    name: "Kósa Zsuska"
+                }
+            ]
+        },
+        ENG: {
+            title: "My references",
+            data: [
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
+                    name: "Benjamin Taylor"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very satisfied with Teacher Anna! She is extremely committed to the students' progress and always ready to help. Her classes are always inspiring, and she makes the Hungarian language easy to understand. Thank you, Anna, for being such a great teacher!</p>",
+                    name: "Olivia Anderson"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I can only praise Teacher Anna for her expertise and enthusiasm! She always managed to make the language class interesting, and her creative methods helped me learn Hungarian more quickly. Thank you very much, Anna, for being such a motivating and helpful teacher!</p>",
+                    name: "Jonathan Miller"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
+                    name: "Cameron Ray"
+                },
+            ]
+        },
+        FR: {
+            title: "Mes références",
+            data: [
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Je suis très reconnaissant envers l'enseignante Anna pour son excellente pédagogie linguistique ! Ses cours étaient toujours intéressants et interactifs, et sa patience m'a aidé à apprendre la langue hongroise avec confiance. Merci, Anna, pour votre soutien et votre expertise !</p>",
+                    name: "Camille Dupont"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je suis très satisfait de l'enseignante Anna ! Elle est extrêmement dévouée au progrès des étudiants et toujours prête à aider. Ses cours sont toujours inspirants, et elle rend la langue hongroise facile à comprendre. Merci, Anna, d'être une si bonne enseignante !</p>",
+                    name: "Alexandre Martin"
+                },
+                {
+                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je ne peux que louer l'enseignante Anna pour son expertise et son enthousiasme ! Elle a toujours réussi à rendre le cours de langue intéressant, et ses méthodes créatives m'ont aidé à apprendre le hongrois plus rapidement. Merci beaucoup, Anna, d'être une enseignante si motivante et utile !</p>",
+                    name: "Sophie Lefèvre"
+                }
+            ]
+        }
+
     }
 }
