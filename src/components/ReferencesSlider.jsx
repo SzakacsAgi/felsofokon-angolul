@@ -4,6 +4,7 @@ import {CarouselCaption} from "react-bootstrap";
 import sliderBackgroundImage from "../assets/slider-background.svg";
 import {sanitizeHTMLContent} from "../store/utils";
 
+
 export default function ReferencesSlider({sliderContent}) {
     return (
         <Carousel>
