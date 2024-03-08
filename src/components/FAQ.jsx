@@ -1,16 +1,16 @@
 import Accordion from 'react-bootstrap/Accordion';
-import DOMPurify from "dompurify";
+import {sanitizeHTMLContent} from "../store/utils";
 import './FAQ.css';
 
 function FAQ({faqContent}) {
     return (
-        <Accordion defaultActiveKey={['0']} alwaysOpen>
+        <Accordion>
             {faqContent.map((data, index) => <Accordion.Item eventKey={index.toString()} key={`FAQ${index}`}>
                 <Accordion.Header>
-                    <div className="question" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(data.question)}}></div>
+                    <div className="question" dangerouslySetInnerHTML={sanitizeHTMLContent(data.question)}></div>
                 </Accordion.Header>
                 <Accordion.Body>
-                    <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(data.answer)}}></div>
+                    <div dangerouslySetInnerHTML={sanitizeHTMLContent(data.answer)}></div>
                 </Accordion.Body>
             </Accordion.Item>)}
         </Accordion>
