@@ -1,17 +1,9 @@
 import classes from './Home.module.css';
-import DOMPurify from 'dompurify';
 import {useHeaderContext} from "../store/contexts-provider";
 import ReferencesSlider from "./ReferencesSlider";
 import SectionTitle from "./SectionTitle";
 import FAQ from "./FAQ";
-
-function isErrorOccurred(pageContent){
-    return typeof pageContent === "string";
-}
-
-function sanitizeHTMLContent(content){
-    return {__html: DOMPurify.sanitize(content)}
-}
+import {isErrorOccurred, sanitizeHTMLContent} from "../store/utils";
 
 export default function Home({pageContent}){
     const {currentLanguage} = useHeaderContext();
