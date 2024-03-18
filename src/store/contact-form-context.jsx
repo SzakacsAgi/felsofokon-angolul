@@ -52,7 +52,7 @@ export default function ContactFormProvider({ children }) {
         if (isFormSendable(contactFormState)) {
             contactFormStateDispatcher({ type: 'FORM_IS_UNDER_SENDING' });
             getFormData(inputFields).then(formData =>{
-                fetch(`${process.env.URL}/.netlify/functions/getInTouch`, {
+                fetch(`./.netlify/functions/getInTouch`, {
                     method: "POST",
                     body: JSON.stringify({
                         ...formData,
