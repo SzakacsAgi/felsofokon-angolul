@@ -70,7 +70,7 @@ export default function ContactFormProvider({ children }) {
                         }
                     })
                     .catch(error => {
-                        console.log(`Form sending was unsuccessful ${error}`);
+                        console.error(`Form sending was unsuccessful ${error}`);
                         contactFormStateDispatcher({ type:  'FORM_SENDING_FINISHED'});
                         contactFormStateDispatcher({ type: 'FORM_SUBMIT_FAILURE' });
                     })

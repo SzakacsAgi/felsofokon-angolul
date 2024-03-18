@@ -36,6 +36,8 @@ exports.handler = async function(event) {
         }
     }
     catch(error){
+        console.error(error)
+        console.error(`Error in get getInTouch email template ${error.cause.statusCode}`);
         return {
             statusCode: error.cause.statusCode,
             body: JSON.stringify(error.cause.statusText)
