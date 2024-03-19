@@ -26,7 +26,7 @@ exports.handler = async function(event) {
         if (response.statusText === 'OK'){
             return {
                 statusCode: 200,
-                body: JSON.stringify("Subscribe email sent!")
+                body: JSON.stringify({message: "Contact email sent!", statusCode:200})
             }
         }
        else{
