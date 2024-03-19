@@ -104,7 +104,7 @@ export default function ContactFormProvider({ children }) {
             city: "Nem sikerült érzékelni"
         };
 
-        return fetch(`https://api-bdc.net/data/ip-geolocation?key=${process.env.GEOLOCATOR_API}`, {method: "GET"})
+        return fetch(`https://api-bdc.net/data/ip-geolocation?key=${process.env.REACT_APP_GEOLOCATOR_API}`, {method: "GET"})
             .then(response => response.json())
             .then(data => {
                 return {
