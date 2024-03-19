@@ -103,12 +103,13 @@ export default function ContactFormProvider({ children }) {
             pageLanguage: currentLanguage,
             city: "Nem sikerült érzékelni"
         };
-        return fetch('http://ip-api.com/json/')
+
+        return fetch(`https://api-bdc.net/data/ip-geolocation?key=${process.env.GEOLOCATOR_API}`, {method: "GET"})
             .then(response => response.json())
             .then(data => {
                 return {
                     ...formInputs,
-                    city: data.city
+                    city: `${data.location.city} (${data.country.isoNameFull})`
                 };
             })
             .catch(error => {
