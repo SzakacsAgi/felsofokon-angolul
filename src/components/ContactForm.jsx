@@ -24,38 +24,6 @@ export default function ContactForm({contactContent}) {
         // eslint-disable-next-line
     }, [currentPage]);
 
-    function validateForm(toValidate) {
-        let errors = {}
-        let messageInputValue = messageInput.current.value.trim();
-        let nameInputValue = nameInput.current.value.trim();
-        let emailInputValue = emailInput.current.value.trim();
-
-        switch (toValidate) {
-            case "message":
-                errors.messageTextareaError = !messageInputValue;
-                break;
-            case "name":
-                errors.nameInputError = !nameInputValue;
-                break;
-            case "email":
-                if (!emailInputValue) {
-                    errors.emailInputError = true;
-                } else {
-                    let regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-                    let emailFormatIsValid = emailInputValue.match(regex);
-                    if (!emailFormatIsValid) {
-                        errors.emailInputError = true;
-                    } else {
-                        errors.emailInputError = false;
-                    }
-                }
-                break;
-            default:
-                console.log("Input type was not provided");
-        }
-        return errors;
-    }
-
     function detectContactFormContent() {
         if (contactFormContext.isSending) {
             return <div className="feedback-form-content">{`${contactContent.sendButtonText}...`}</div>
@@ -69,11 +37,9 @@ export default function ContactForm({contactContent}) {
         return <div className="form-content">
                 <div className="flex-row">
                     <InputFactory required type="TEXT" labelText={contactContent.name}
-                                  placeHolder={contactContent.namePlaceholder} id="nameInput" ref={nameInput}
-                                  formValidate={validateForm} contactContent={contactContent}/>
+                                  placeHolder={contactContent.namePlaceholder} id="nameInput" ref={nameInput} contactContent={contactContent}/>
                     <InputFactory required type="EMAIL" labelText={contactContent.email}
-                                  placeHolder={contactContent.emailPlaceholder} id="emailInput" ref={emailInput}
-                                  formValidate={validateForm} contactContent={contactContent}/>
+                                  placeHolder={contactContent.emailPlaceholder} id="emailInput" ref={emailInput} contactContent={contactContent}/>
                 </div>
                 <div className="flex-row">
                     <InputFactory required type="SELECT" labelText={contactContent.level} id="levelSelect"
@@ -84,8 +50,7 @@ export default function ContactForm({contactContent}) {
                 </div>
                 <div className="flex-row">
                     <InputFactory required type="TEXTAREA" labelText={contactContent.message}
-                                  placeHolder={contactContent.messagePlaceHolder} id="messageTextarea" ref={messageInput}
-                                  formValidate={validateForm} contactContent={contactContent}/>
+                                  placeHolder={contactContent.messagePlaceHolder} id="messageTextarea" ref={messageInput} contactContent={contactContent}/>
                 </div>
                 <button disabled={!contactFormContext.isFormSendable(contactFormContext)}
                         title={contactFormContext.isFormSendable(contactFormContext) ? '' : contactContent.disabledButtonText}

@@ -2,20 +2,20 @@ import FormSelectInput from "../FormSelectInput";
 import {forwardRef} from "react";
 import {useContactFormContext} from "../../store/contexts-provider";
 
-const InputFactory = forwardRef(function Input({ required, type, labelText, options, placeHolder, id, formValidate, contactContent}, ref) {
+const InputFactory = forwardRef(function Input({ required, type, labelText, options, placeHolder, id, contactContent}, ref) {
     let input = null;
     let objectName = `${id}Error`;
     const {invalidFields, onFormValidation} = useContactFormContext();
 
     switch (type) {
         case "EMAIL":
-            input = <input onBlur={() => onFormValidation(invalidFields, () => formValidate("email"))} onChange={() => onFormValidation(invalidFields, () => formValidate("email"))} type="email" placeholder={placeHolder} id={id} ref={ref} />;
+            input = <input onBlur={() => onFormValidation(invalidFields, {validationType:"email", inputField:ref})} onChange={() => onFormValidation(invalidFields, {validationType:"email", inputField:ref})} type="email" placeholder={placeHolder} id={id} ref={ref} />;
             break;
         case "TEXT":
-            input = <input onBlur={() => onFormValidation(invalidFields, () => formValidate("name"))} onChange={() => onFormValidation(invalidFields, () => formValidate("name"))} type="text" placeholder={placeHolder} id={id} ref={ref} />;
+            input = <input onBlur={() => onFormValidation(invalidFields,  {validationType:"name", inputField:ref})} onChange={() => onFormValidation(invalidFields,  {validationType:"name", inputField:ref})} type="text" placeholder={placeHolder} id={id} ref={ref} />;
             break;
         case "TEXTAREA":
-            input = <textarea onBlur={() => onFormValidation(invalidFields, () => formValidate("message"))} onChange={() => onFormValidation(invalidFields, () => formValidate("message"))} placeholder={placeHolder} id={id} ref={ref} />;
+            input = <textarea onBlur={() => onFormValidation(invalidFields,  {validationType:"message", inputField:ref})} onChange={() => onFormValidation(invalidFields, {validationType:"message", inputField:ref})} placeholder={placeHolder} id={id} ref={ref} />;
             break;
         case "SELECT":
             input = <FormSelectInput options={options} id={id} ref={ref} />;

@@ -7,32 +7,10 @@ export const ContactFormContext = createContext({
     isFormSendable: () => {},
     isFormSent: null,
     onFormReload: () => {},
-    isSending: null
+    isSending: null,
 });
 
-function contactFormReducer(state, action) {
-    switch (action.type) {
-        case 'FORM_SUBMIT_SUCCESS':
-            return { ...state, isFormSent: true };
-        case 'FORM_SUBMIT_FAILURE':
-            return { ...state, isFormSent: false };
-        case 'SET_INITIAL_SENT_STATE':
-            return { ...state, isFormSent: null };
-        case 'FORM_VALIDATE':
-            const errors = action.payload.formValidate();
-            return { ...state, invalidFields: { ...state.invalidFields, ...errors } };
-        case 'FORM_IS_UNDER_SENDING':
-            return {...state, isSending:true}
-        case 'FORM_SENDING_FINISHED':
-            return {...state, isSending:false}
-        default:
-            return state;
-    }
-}
 
-function isFormSendable(contactFormState) {
-    return Object.values(contactFormState.invalidFields).filter(field => field === false).length === 3;
-}
 
 export default function ContactFormProvider({ children }) {
     const [contactFormState, contactFormStateDispatcher] = useReducer(contactFormReducer, { invalidFields: { emailInputError: "", nameInputError: "", messageTextareaError: "" }, contactContentState: { title: "" }, isFormSent: null });
@@ -45,6 +23,30 @@ export default function ContactFormProvider({ children }) {
         isFormSent: contactFormState.isFormSent,
         onFormReload: onFormReload,
         isSending: contactFormState.isSending
+    }
+
+    function contactFormReducer(state, action) {
+        switch (action.type) {
+            case 'FORM_SUBMIT_SUCCESS':
+                return { ...state, isFormSent: true };
+            case 'FORM_SUBMIT_FAILURE':
+                return { ...state, isFormSent: false };
+            case 'SET_INITIAL_SENT_STATE':
+                return { ...state, isFormSent: null };
+            case 'FORM_VALIDATE':
+                const errors = validateForm(action.payload.validationData) ;
+                return { ...state, invalidFields: { ...state.invalidFields, ...errors }};
+            case 'FORM_IS_UNDER_SENDING':
+                return {...state, isSending:true}
+            case 'FORM_SENDING_FINISHED':
+                return {...state, isSending:false}
+            default:
+                return state;
+        }
+    }
+
+    function isFormSendable(contactFormState) {
+        return Object.values(contactFormState.invalidFields).filter(field => field === false).length === 3;
     }
 
     function onFormSubmit(event, inputFields) {
@@ -78,11 +80,11 @@ export default function ContactFormProvider({ children }) {
         }
     }
 
-    function onFormValidation(errors, formValidate) {
+    function onFormValidation(errors, validationData) {
         contactFormStateDispatcher({
             type: 'FORM_VALIDATE',
             payload: {
-                formValidate,
+                validationData,
                 errors
             }
         });
@@ -122,6 +124,36 @@ export default function ContactFormProvider({ children }) {
         contactFormStateDispatcher({
             type: 'SET_INITIAL_SENT_STATE'
         })
+    }
+
+    function validateForm({validationType, inputField}) {
+        let errors = {}
+        let inputValue = inputField.current.value.trim();
+
+        switch (validationType) {
+            case "message":
+                errors.messageTextareaError = !inputValue;
+                break;
+            case "name":
+                errors.nameInputError = !inputValue;
+                break;
+            case "email":
+                if (!inputValue) {
+                    errors.emailInputError = true;
+                } else {
+                    let regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+                    let emailFormatIsValid = inputValue.match(regex);
+                    if (!emailFormatIsValid) {
+                        errors.emailInputError = true;
+                    } else {
+                        errors.emailInputError = false;
+                    }
+                }
+                break;
+            default:
+                console.log("Input type was not provided");
+        }
+        return errors;
     }
 
     return <ContactFormContext.Provider value={contextValue}>
