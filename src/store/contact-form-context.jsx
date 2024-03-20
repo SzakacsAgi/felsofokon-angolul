@@ -104,12 +104,13 @@ export default function ContactFormProvider({ children }) {
             city: "Nem sikerült érzékelni"
         };
 
-        return fetch(`https://api-bdc.net/data/ip-geolocation?key=${process.env.REACT_APP_GEOLOCATOR_API}`, {method: "GET"})
+        return fetch(`./.netlify/functions/getGeoLocation`, {method: "GET",})
             .then(response => response.json())
-            .then(data => {
+            .then(jsonResponse => {
+                console.log(jsonResponse)
                 return {
                     ...formInputs,
-                    city: `${data.location.city} (${data.country.isoNameFull})`
+                    city: `${jsonResponse.data.location.city} (${jsonResponse.data.country.isoNameFull})`
                 };
             })
             .catch(error => {
