@@ -104,7 +104,10 @@ export default function ContactFormProvider({ children }) {
             city: "Nem sikerült érzékelni"
         };
 
-        return fetch(`./.netlify/functions/getGeoLocation`, {method: "GET",})
+
+        return fetch("https://api.ipify.org?format=json").then(response => response.json()).then(jsonResponse =>
+        {
+            return fetch(`./.netlify/functions/getGeoLocation`, {method: "GET", headers:jsonResponse})
             .then(response => response.json())
             .then(jsonResponse => {
                 console.log(jsonResponse)
@@ -113,6 +116,7 @@ export default function ContactFormProvider({ children }) {
                     city: `${jsonResponse.data.location.city} (${jsonResponse.data.country.isoNameFull})`
                 };
             })
+        })
             .catch(error => {
                 console.error('Town detect was unsuccessful', error);
                 return formInputs;

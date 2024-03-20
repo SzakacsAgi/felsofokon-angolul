@@ -1,6 +1,6 @@
-exports.handler = async function() {
+exports.handler = async function(event) {
     try{
-       const response = await fetch(`https://api-bdc.net/data/ip-geolocation?key=${process.env.GEOLOCATOR_API}`, {method: "GET"})
+       const response = await fetch(`https://api-bdc.net/data/ip-geolocation?ip=${event.headers.ip}&key=${process.env.GEOLOCATOR_API}`, {method: "GET"})
            .then(response => response.json())
            .then(data => ({statusCode: 200, body: data}))
         if (response.statusCode === 200){
