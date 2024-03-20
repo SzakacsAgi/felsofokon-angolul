@@ -10,8 +10,6 @@ export const ContactFormContext = createContext({
     isSending: null,
 });
 
-
-
 export default function ContactFormProvider({ children }) {
     const [contactFormState, contactFormStateDispatcher] = useReducer(contactFormReducer, { invalidFields: { emailInputError: "", nameInputError: "", messageTextareaError: "" }, contactContentState: { title: "" }, isFormSent: null });
 
@@ -60,22 +58,22 @@ export default function ContactFormProvider({ children }) {
                         ...formData,
                     })
                 })
-                    .then(response => {
-                        contactFormStateDispatcher({ type: 'FORM_SENDING_FINISHED'});
-                        if (response.status === 200){
-                            contactFormStateDispatcher({ type: 'FORM_SUBMIT_SUCCESS' });
-                        }
-                        else{
-                            let error= new Error("The email sent was unsuccessful");
-                            error.cause = {statusCode:response.status, statusText:response.statusText}
-                            throw error;
-                        }
-                    })
-                    .catch(error => {
-                        console.error(`Form sending was unsuccessful ${error}`);
-                        contactFormStateDispatcher({ type:  'FORM_SENDING_FINISHED'});
-                        contactFormStateDispatcher({ type: 'FORM_SUBMIT_FAILURE' });
-                    })
+                .then(response => {
+                    contactFormStateDispatcher({ type: 'FORM_SENDING_FINISHED'});
+                    if (response.status === 200){
+                        contactFormStateDispatcher({ type: 'FORM_SUBMIT_SUCCESS' });
+                    }
+                    else{
+                        let error= new Error("The email sent was unsuccessful");
+                        error.cause = {statusCode:response.status, statusText:response.statusText}
+                        throw error;
+                    }
+                })
+                .catch(error => {
+                    console.error(`Form sending was unsuccessful ${error}`);
+                    contactFormStateDispatcher({ type:  'FORM_SENDING_FINISHED'});
+                    contactFormStateDispatcher({ type: 'FORM_SUBMIT_FAILURE' });
+                })
             });
         }
     }
