@@ -43,7 +43,7 @@ export default function MainContent() {
             try {
                 setInitialState();
                 const pageContentData = await getPageContentData(currentPage);
-                if (pageContentData) {
+                if(pageContentData) {
                    savePageContentData(pageContentData);
                 }
             } catch (error) {

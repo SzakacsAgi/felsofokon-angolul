@@ -1,6 +1,5 @@
-export default class UrlProvider {
-
-    getApiUrl(page){
+class UrlProvider {
+    getPageContentApiUrl(page){
         let url = null;
         switch (page){
             case "home":
@@ -32,4 +31,28 @@ export default class UrlProvider {
         }
         return url;
     }
+
+    getGeoLocationApiUrl(ip){
+        const baseUrl = "https://api-bdc.net/data/ip-geolocation";
+        const key = process.env.REACT_APP_GEOLOCATOR_API;
+        return `${baseUrl}?ip=${ip}&key=${key}`;
+    }
+
+    getGetInTouchTemplateApiUrl(){
+        return `${process.env.URL}/.netlify/functions/emails/getInTouch`;
+    }
+
+    getGetInTouchEmailSendingUrl(){
+        return "./.netlify/functions/sendGetInTouchEmailAPI";
+    }
+
+    getClientIpAddressUrl(){
+        return "https://api.ipify.org?format=json";
+    }
+
+    getClientTownDetectUrl(){
+        return "./.netlify/functions/getGeoLocation";
+    }
 }
+
+module.exports = UrlProvider;

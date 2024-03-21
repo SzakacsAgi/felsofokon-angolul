@@ -12,14 +12,14 @@ export const HeaderContext = createContext({
 });
 
 function headerReducer(state, action){
-    if (action.type === 'MENU_POINT_CLICK') {
+    if(action.type === 'MENU_POINT_CLICK') {
         return {
            ...state,
             currentPage: action.payload
         };
     }
 
-    if (action.type === 'FLAG_CLICK') {
+    if(action.type === 'FLAG_CLICK') {
         initialValueProvider.setLanguageToStorage("LOCAL", initialValueProvider.getLanguageFromStorage("SESSION"));
         initialValueProvider.setLanguageToStorage("SESSION", action.payload);
         return {

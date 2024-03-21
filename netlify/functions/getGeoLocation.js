@@ -1,26 +1,17 @@
+const UrlProvider = require('../../src/data/url-provider');
+const urlProvider = new UrlProvider();
+const {createResponse, throwError, catchErrorWithResponse} = require('../../src/store/utils/fetch-util');
+
 exports.handler = async function(event) {
-    try{
-       const response = await fetch(`https://api-bdc.net/data/ip-geolocation?ip=${event.headers.ip}&key=${process.env.GEOLOCATOR_API}`, {method: "GET"})
-           .then(response => response.json())
-           .then(data => ({statusCode: 200, body: data}))
-        if (response.statusCode === 200){
-            return {
-                statusCode: 200,
-                body: JSON.stringify({message: "Location detect was successful", data:response.body, statusCode:200})
-            }
+    try {
+        const response = await fetch(urlProvider.getGeoLocationApiUrl(event.headers.ip), {method: "GET"});
+        if(response.status !== 200){
+            throwError("Location detect was unsuccessful", response);
         }
-        else{
-            let error= new Error("Location detect was unsuccessful");
-            error.cause = {statusCode:response.status, statusText:response.statusText}
-            throw error;
-        }
+        const json = await response.json();
+        return createResponse(200, response.statusText, {data: json});
     }
     catch(error){
-        console.error(error)
-        console.error(`Location detect was unsuccessful ${error.cause.statusCode}`);
-        return {
-            statusCode: error.cause.statusCode,
-            body: JSON.stringify(error.cause.statusText)
-        }
+       return catchErrorWithResponse(error, urlProvider.getGeoLocationApiUrl(event.headers.ip));
     }
 }

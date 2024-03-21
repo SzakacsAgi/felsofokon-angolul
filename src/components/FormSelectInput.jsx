@@ -6,7 +6,7 @@ const FormSelectInput = forwardRef(function FormSelectInput({ options, ...props 
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (selectRef.current && !selectRef.current.contains(event.target)) {
+            if(selectRef.current && !selectRef.current.contains(event.target)) {
                 setSelectState(prevState => ({ ...prevState, isOpened: false }));
             }
         };
@@ -34,9 +34,10 @@ const FormSelectInput = forwardRef(function FormSelectInput({ options, ...props 
 
     function getSelectedButtonText() {
         let textToDisplay = options[0];
-        if (options[options.indexOf(selectState.value)]) {
+        if(options[options.indexOf(selectState.value)]) {
             textToDisplay = options[options.indexOf(selectState.value)];
-        } else if (options[selectState.optionIndex]) {
+        }
+        else if(options[selectState.optionIndex]) {
             textToDisplay = options[selectState.optionIndex];
         }
         return textToDisplay;
