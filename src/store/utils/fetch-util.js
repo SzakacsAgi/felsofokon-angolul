@@ -9,11 +9,8 @@ function createResponse(statusCode, message, data = {}) {
     }
 }
 
-function checkIfPayloadProvided(event){
-    if(event.body === null || Object.keys(JSON.parse(event.body)).length === 0) {
-        return createResponse(400, "Payload is required")
-    }
-    return 200;
+function isPayloadProvided(event){
+    return !(event.body === null || Object.keys(JSON.parse(event.body)).length === 0);
 }
 
 function throwError(errorText, response){
@@ -27,7 +24,7 @@ function catchErrorWithConsoleLog(error, server){
         console.error(`${error.cause.status} : ${error.cause.statusText}`);
     }
     else {
-        console.error(`500 : ${server} is unavailable`);
+        console.error(`HTTP 500 : ${server} is unavailable`);
     }
 }
 
@@ -42,7 +39,7 @@ function catchErrorWithResponse(error, server){
 
 module.exports = {
     createResponse,
-    checkIfPayloadProvided,
+    isPayloadProvided,
     throwError,
     catchErrorWithConsoleLog,
     catchErrorWithResponse

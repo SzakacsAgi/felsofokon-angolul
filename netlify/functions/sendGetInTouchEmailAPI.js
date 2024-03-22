@@ -1,18 +1,18 @@
 const UrlProvider = require('../../src/data/url-provider');
 const urlProvider = new UrlProvider();
-const {createResponse, checkIfPayloadProvided, catchErrorWithResponse, throwError} = require('../../src/store/utils/fetch-util');
+const {createResponse, isPayloadProvided, catchErrorWithResponse, throwError} = require('../../src/store/utils/fetch-util');
 const GET_IN_TOUCH_EMAIL_DATA = require("../../src/data/emails-data");
 
 exports.handler = async function(event) {
-    const payloadCheckResponse =checkIfPayloadProvided(event);
-    if(payloadCheckResponse !== 200){
-        return payloadCheckResponse;
+    if(!isPayloadProvided(event)){
+        return createResponse(400, "Payload is required");
     }
+    const apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
 
     try{
          const requestBody = JSON.parse(event.body);
          const NETLIFY_EMAILS_SECRET = process.env.NETLIFY_EMAILS_SECRET;
-         const response = await fetch(urlProvider.getGetInTouchTemplateApiUrl(), {
+         const response = await fetch(apiUrl, {
              headers: {
                  "netlify-emails-secret": NETLIFY_EMAILS_SECRET
              },
@@ -31,6 +31,6 @@ exports.handler = async function(event) {
         }
     }
     catch(error){
-        return catchErrorWithResponse(error, urlProvider.getGetInTouchTemplateApiUrl());
+        return catchErrorWithResponse(error, apiUrl);
     }
 }

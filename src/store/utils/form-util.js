@@ -34,6 +34,7 @@ export function getFormData({messageInput, nameInput, emailInput, levelSelect, c
 export function validateForm({validationType, inputField}) {
     let errors = {}
     let inputValue = inputField.current.value.trim();
+    const EMAIL_FORMAT_REGEX = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
     switch (validationType) {
         case "message":
@@ -46,8 +47,7 @@ export function validateForm({validationType, inputField}) {
             if(!inputValue) {
                 errors.emailInputError = true;
             } else {
-                let regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-                let emailFormatIsValid = inputValue.match(regex);
+                let emailFormatIsValid = inputValue.match(EMAIL_FORMAT_REGEX);
                 if(!emailFormatIsValid) {
                     errors.emailInputError = true;
                 } else {
