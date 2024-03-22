@@ -51,12 +51,11 @@ export function getFormData({messageInput, nameInput, emailInput, levelSelect, c
     };
 
     return getClientIpAddress()
-        .then(jsonIp =>
-        {
+        .then(jsonIp => {
             return getClientTown(jsonIp, formInputs)
         })
         .catch(error => {
-            console.error('Town detect was unsuccessful', error);
+            console.info('Town detect was unsuccessful', error);
             return formInputs;
         });
 }

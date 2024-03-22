@@ -4,11 +4,12 @@ const {createResponse, isPayloadProvided, catchErrorWithResponse, throwError} = 
 const GET_IN_TOUCH_EMAIL_DATA = require("../../src/data/emails-data");
 
 exports.handler = async function(event) {
+    console.info(`Payload is: ${event.body}`);
     if(!isPayloadProvided(event)){
         return createResponse(400, "Payload is required");
     }
     const apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
-
+    console.info(apiUrl);
     try{
          const requestBody = JSON.parse(event.body);
          const NETLIFY_EMAILS_SECRET = process.env.NETLIFY_EMAILS_SECRET;
@@ -24,6 +25,7 @@ exports.handler = async function(event) {
          });
 
         if(response.status === 200){
+            console.info(`${apiUrl} response was 200, email sending was successful`);
             return createResponse(200, "Contact email sent!");
         }
         else{

@@ -10,7 +10,8 @@ function createResponse(statusCode, message, data = {}) {
 }
 
 function isPayloadProvided(event){
-    return !(event.body === null || Object.keys(JSON.parse(event.body)).length === 0);
+    const bodyObject = JSON.parse(event.body);
+    return !(event.body === null || Object.keys(bodyObject).length === 0);
 }
 
 function throwError(errorText, response){
@@ -29,7 +30,7 @@ function catchErrorWithConsoleLog(error, server){
 }
 
 function catchErrorWithResponse(error, server){
-    console.error('Error occurred: ', error);
+    console.error(`Error: ${error.cause}, with ${server}`);
     if(error.cause){
         return createResponse(error.cause.status, error.cause.statusText);
     } else{
