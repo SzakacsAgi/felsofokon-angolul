@@ -245,7 +245,9 @@ export const DUMMY_HOMEPAGE_DATA = {
             messagePlaceHolder: "Írd ide az üzenetet...",
             messageTextareaError: "Az üzenetet kötelező megadni",
             sendButtonText: "Küldés",
-            disabledButtonText: "Az űrlap kitöltése nem megfelelő! Kérlek tölts ki minden *-al jelölt mezőt."
+            disabledButtonText: "Az űrlap kitöltése nem megfelelő! Kérlek tölts ki minden *-al jelölt mezőt.",
+            successfulSendText: "Köszönöm, hogy felvetted velem a kapcsolatot! Örömmel értesítelek, hogy sikeresen megkaptam az üzenetedet.\nHamarosan fel fogom venni veled a megadott elérhetőségeden a kapcsolatot, addig is legyen szép napod!",
+            unsuccessfulSendText: "Valami hiba történt a kapcsolat felvétele során, az űrlapot nem sikerült elküldeni. Kérlek próbáld újra később!\nHa a probléma tartósan fennáll kérlek jelezd nekem a bugreport@gmail.com email címen."
         },
         ENG:{
             title:"Get in touch with me",
@@ -263,7 +265,9 @@ export const DUMMY_HOMEPAGE_DATA = {
             messagePlaceHolder: "Type your message here...",
             messageTextareaError: "Message is mandatory",
             sendButtonText: "Send",
-            disabledButtonText: "Form submission is invalid! Please fill in all fields marked with *."
+            disabledButtonText: "Form submission is invalid! Please fill in all fields marked with *.",
+            successfulSendText:"Thank you for contacting me! I'm pleased to inform you that I have successfully received your message.\nI will reach out to you shortly at the provided contact information. In the meantime, have a great day!",
+            unsuccessfulSendText: `An error occurred while establishing the connection, the form could not be submitted. Please try again later!\nIf the problem persists, please notify me at bugreport@gmail.com.`
         },
         FR:{
             title:"Me contacter",
@@ -281,7 +285,9 @@ export const DUMMY_HOMEPAGE_DATA = {
             messagePlaceHolder: "Écrivez votre message ici...",
             messageTextareaError: "Le message est obligatoire",
             sendButtonText: "Envoyer",
-            disabledButtonText: "La soumission du formulaire n'est pas valide! Veuillez remplir tous les champs marqués d'un *."
+            disabledButtonText: "La soumission du formulaire n'est pas valide! Veuillez remplir tous les champs marqués d'un *.",
+            successfulSendText: "Merci de m'avoir contacté ! Je suis heureux de vous informer que j'ai bien reçu votre message.\nJe vous contacterai sous peu aux coordonnées fournies. En attendant, passez une bonne journée !",
+            unsuccessfulSendText:"Une erreur s'est produite lors de l'établissement de la connexion, le formulaire n'a pas pu être envoyé. Veuillez réessayer plus tard!\nSi le problème persiste, veuillez me le signaler à l'adresse bugreport@gmail.com."
         }
     }
 }

@@ -1,3 +1,5 @@
+import {getClientIpAddress, getClientTown} from "../../rest-api-caller/form-calls";
+
 export function isFormSendable(contactFormState) {
     return Object.values(contactFormState.invalidFields).filter(field => field === false).length === 3;
 }
@@ -30,4 +32,30 @@ export function validateForm({validationType, inputField}) {
             console.log("Input type was not provided");
     }
     return errors;
+}
+
+export function getFormData({messageInput, nameInput, emailInput, levelSelect, causeSelect, currentLanguage}) {
+    let messageInputValue = messageInput.current.value.trim();
+    let nameInputValue = nameInput.current.value.trim();
+    let emailInputValue = emailInput.current.value.trim();
+    let levelSelectValue = levelSelect.current.innerHTML;
+    let causeSelectValue = causeSelect.current.innerHTML;
+    let formInputs =  {
+        name: nameInputValue,
+        message: messageInputValue,
+        email: emailInputValue,
+        level: levelSelectValue,
+        cause: causeSelectValue,
+        pageLanguage: currentLanguage,
+        city: "Nem sikerült érzékelni"
+    };
+
+    return getClientIpAddress()
+        .then(jsonIp => {
+            return getClientTown(jsonIp, formInputs)
+        })
+        .catch(error => {
+            console.info('Town detect was unsuccessful', error);
+            return formInputs;
+        });
 }

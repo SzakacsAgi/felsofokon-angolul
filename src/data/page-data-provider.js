@@ -4,7 +4,7 @@ const urlProvider = new UrlProvider();
 
 export async function getPageContentData(page) {
     const data = DUMMY_HOMEPAGE_DATA;
-    const url = urlProvider.getApiUrl(page);
+    const url = urlProvider.getPageContentApiUrl(page);
     try{
         const response = await fetch(url);
         if (response.ok){

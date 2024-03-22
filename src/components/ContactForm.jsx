@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import InputFactory from "./Factory/InputFactory";
 import {useContactFormContext, useHeaderContext} from "../store/contexts-provider";
 
@@ -9,7 +9,7 @@ export default function ContactForm({contactContent}) {
     const levelSelect = useRef();
     const causeSelect = useRef();
     const contactFormContext = useContactFormContext();
-    const {currentLanguage} = useHeaderContext();
+    const {currentLanguage, currentPage} = useHeaderContext();
     const inputFields ={
         nameInput,
         emailInput,
@@ -20,6 +20,9 @@ export default function ContactForm({contactContent}) {
     }
 
     const FORM_CONTENT = {
+        formIsSending: <div className="feedback-form-content">{`${contactContent.sendButtonText}...`}</div>,
+        successfulFormSending: <div className="feedback-form-content">{contactContent.successfulSendText}</div>,
+        unsuccessfulFormSending: <div className="feedback-form-content">{contactContent.unsuccessfulSendText}</div>,
         formToSend: <div className="form-content">
             <div className="flex-row">
                 <InputFactory required type="TEXT" labelText={contactContent.name}
@@ -48,10 +51,26 @@ export default function ContactForm({contactContent}) {
         </div>
     }
 
+    useEffect(() => {
+        contactFormContext.onFormReload();
+        // eslint-disable-next-line
+    }, [currentPage]);
+
+    function detectContactFormContent() {
+        if(contactFormContext.isSending) {
+            return FORM_CONTENT.formIsSending;
+        } else if(contactFormContext.isFormSent) {
+            return FORM_CONTENT.successfulFormSending;
+        } else if(contactFormContext.isFormSent === false) {
+            return FORM_CONTENT.unsuccessfulFormSending;
+        }
+        return FORM_CONTENT.formToSend;
+    }
+
 
     return <form noValidate className="contact-form" onSubmit={(event) => {
         contactFormContext.onFormSubmit(event, inputFields)
     }}>
-        {FORM_CONTENT.formToSend}
+        {detectContactFormContent()}
     </form>
 }
