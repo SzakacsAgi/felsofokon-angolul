@@ -1,12 +1,16 @@
 import { createContext, useReducer } from "react";
 import {contactFormReducer, ACTIONS} from "./form-reducer";
 import {isFormSendable, validateForm} from "./utils/form-util";
+import {sendContactForm} from "../rest-api-caller/form-calls";
 
 export const ContactFormContext = createContext({
     invalidFields: {},
     onFormSubmit: () => {},
     onFormValidation: () => {},
     isFormSendable: () => {},
+    isFormSent: null,
+    onFormReload: () => {},
+    isSending: null,
 });
 
 export default function ContactFormProvider({ children }) {
@@ -16,14 +20,17 @@ export default function ContactFormProvider({ children }) {
         onFormSubmit: onFormSubmit,
         onFormValidation: onFormValidation,
         isFormSendable: isFormSendable,
-        validateForm: validateForm
+        validateForm: validateForm,
+        isFormSent: contactFormState.isFormSent,
+        onFormReload: onFormReload,
+        isSending: contactFormState.isSending
     }
 
     async function onFormSubmit(event, inputFields) {
         event.preventDefault();
         if(isFormSendable(contactFormState)) {
-            console.log(inputFields);
-            console.log("SENDING...");
+            contactFormStateDispatcher({ type: ACTIONS.FORM_IS_UNDER_SENDING });
+            sendContactForm(inputFields, contactFormStateDispatcher);
         }
     }
 
@@ -35,6 +42,12 @@ export default function ContactFormProvider({ children }) {
                 errors
             }
         });
+    }
+
+    function onFormReload(){
+        contactFormStateDispatcher({
+            type: ACTIONS.SET_INITIAL_SENT_STATE
+        })
     }
 
     return <ContactFormContext.Provider value={contextValue}>
