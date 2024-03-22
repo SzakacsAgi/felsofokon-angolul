@@ -227,6 +227,49 @@ export const DUMMY_HOMEPAGE_DATA = {
                 }
             ]
         }
-
+    },
+    contact:{
+        HUN:{
+            title:"Lépj kapcsolatba velem",
+            name:"Név",
+            namePlaceholder: "Szakács Ágnes",
+            email:"Email",
+            emailPlaceholder: "example@gmail.com",
+            level: "Szint",
+            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Nem tudom"],
+            contactCause: "Érdeklődésem tárgya",
+            contactCauseOptions: ["Általános nyelvóra", "Nyelvvizsga felkészítés", "Érettségi felkészítés", "Fordítás", "Egyéb"],
+            message: "Üzenet",
+            messagePlaceHolder: "Írd ide az üzenetet...",
+            sendButtonText: "Küldés"
+        },
+        ENG:{
+            title:"Get in touch with me",
+            name: "Name",
+            namePlaceholder: "Agnes Szakacs",
+            email: "Email",
+            emailPlaceholder: "example@gmail.com",
+            level: "Level",
+            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Don't know"],
+            contactCause: "Subject of inquiry",
+            contactCauseOptions: ["General language lesson", "Language exam preparation", "High school exam preparation", "Translation", "Other"],
+            message: "Message",
+            messagePlaceHolder: "Type your message here...",
+            sendButtonText: "Send"
+        },
+        FR:{
+            title:"Me contacter",
+            name: "Nom",
+            namePlaceholder: "Agnes Szakacs",
+            email: "Email",
+            emailPlaceholder: "example@gmail.com",
+            level: "Niveau",
+            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Je ne sais pas"],
+            contactCause: "Objet de la demande",
+            contactCauseOptions: ["Cours de langue général", "Préparation aux examens de langue", "Préparation aux examens du lycée", "Traduction", "Autre"],
+            message: "Message",
+            messagePlaceHolder: "Écrivez votre message ici...",
+            sendButtonText: "Envoyer"
+        }
     }
 }
