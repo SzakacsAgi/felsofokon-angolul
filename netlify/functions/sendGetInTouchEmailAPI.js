@@ -11,7 +11,7 @@ exports.handler = async function(event) {
     const apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
     console.info(apiUrl);
     try{
-         const requestBody = JSON.parse(event.body);
+        const requestBody = JSON.parse(event.body);
          const NETLIFY_EMAILS_SECRET = process.env.NETLIFY_EMAILS_SECRET;
          const response = await fetch(apiUrl, {
              headers: {

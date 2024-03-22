@@ -30,9 +30,9 @@ function catchErrorWithConsoleLog(error, server){
 }
 
 function catchErrorWithResponse(error, server){
-    console.error(`Error: ${error.cause}, with ${server}`);
+    console.error(`Error: ${error.cause.statusCode} - ${error.cause.statusText}, with ${server}`);
     if(error.cause){
-        return createResponse(error.cause.status, error.cause.statusText);
+        return createResponse(error.cause.statusCode, error.cause.statusText);
     } else{
         return createResponse(500, `${server} is unavailable`);
     }
