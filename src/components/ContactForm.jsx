@@ -1,11 +1,23 @@
 import {useRef} from "react";
 import InputFactory from "./Factory/InputFactory";
+import {useContactFormContext, useHeaderContext} from "../store/contexts-provider";
+
 export default function ContactForm({contactContent}) {
     const nameInput = useRef();
     const emailInput = useRef();
     const messageInput = useRef();
     const levelSelect = useRef();
     const causeSelect = useRef();
+    const contactFormContext = useContactFormContext();
+    const {currentLanguage} = useHeaderContext();
+    const inputFields ={
+        nameInput,
+        emailInput,
+        messageInput,
+        levelSelect,
+        causeSelect,
+        currentLanguage
+    }
 
     const FORM_CONTENT = {
         formToSend: <div className="form-content">
@@ -30,12 +42,16 @@ export default function ContactForm({contactContent}) {
                               placeHolder={contactContent.messagePlaceHolder} id="messageTextarea"
                               ref={messageInput} contactContent={contactContent}/>
             </div>
-            <button type="submit">{contactContent.sendButtonText}</button>
+            <button disabled={!contactFormContext.isFormSendable(contactFormContext)}
+                    title={contactFormContext.isFormSendable(contactFormContext) ? '' : contactContent.disabledButtonText}
+                    type="submit">{contactContent.sendButtonText}</button>
         </div>
     }
 
 
-    return <form noValidate className="contact-form">
+    return <form noValidate className="contact-form" onSubmit={(event) => {
+        contactFormContext.onFormSubmit(event, inputFields)
+    }}>
         {FORM_CONTENT.formToSend}
     </form>
 }

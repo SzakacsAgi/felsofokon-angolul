@@ -3,7 +3,7 @@ import {useHeaderContext} from "../store/contexts-provider";
 import ReferencesSlider from "./ReferencesSlider";
 import SectionTitle from "./SectionTitle";
 import FAQ from "./FAQ";
-import {isErrorOccurred, sanitizeHTMLContent} from "../store/utils";
+import {isErrorOccurred, sanitizeHTMLContent} from "../store/utils/content-displayer-util";
 import './ContactForm.css'
 import ContactForm from "./ContactForm";
 

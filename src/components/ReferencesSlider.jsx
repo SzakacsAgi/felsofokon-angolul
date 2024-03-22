@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import './Slider.css';
 import {CarouselCaption} from "react-bootstrap";
 import sliderBackgroundImage from "../assets/slider-background.svg";
-import {sanitizeHTMLContent} from "../store/utils";
+import {sanitizeHTMLContent} from "../store/utils/content-displayer-util";
 
 
 export default function ReferencesSlider({sliderContent}) {

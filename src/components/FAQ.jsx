@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-import {sanitizeHTMLContent} from "../store/utils";
+import {sanitizeHTMLContent} from "../store/utils/content-displayer-util";
 import './FAQ.css';
 
 function FAQ({faqContent}) {
