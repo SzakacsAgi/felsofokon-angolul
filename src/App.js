@@ -5,6 +5,7 @@ import ContactFormProvider from "./store/contact-form-context";
 
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="*" element={<MainContent/>}/>
             </Routes>
           </ContactFormProvider>
+          <Footer/>
         </HeaderContextProvider>
       </Router>
   );

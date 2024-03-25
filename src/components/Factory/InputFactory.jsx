@@ -1,4 +1,5 @@
 import FormSelectInput from "../FormSelectInput";
+import '../Input.css';
 import {forwardRef} from "react";
 import {useContactFormContext} from "../../store/contexts-provider";
 
