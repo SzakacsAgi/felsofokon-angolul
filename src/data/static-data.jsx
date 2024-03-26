@@ -37,18 +37,30 @@ export const ERROR_TEXT = {
     "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard! \n Si le problème persiste, veuillez me le faire savoir en écrivant à l'adresse e-mail bugreport@gmail.com avec le code suivant: "
 }
 
+export const CONTACT_INFORMATION ={
+    emailAddress: "advancedlevelenglish@example.com",
+    linkedinUrl: "https://www.linkedin.com/in/anna-szak%C3%A1cs/",
+    facebookUrl: "https://www.facebook.com/anna.szakacs13"
+}
+
 export const FOOTER_TEXT = {
     HUN: {
         copyrightText: "Felsőfokon Angolul",
-        emailAddress: "advancedlevelenglish@example.com",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: "Hírlevél",
+        newsLetterPlaceHolder: "Email-cím"
     },
     ENG: {
         copyrightText: "In advanced level English",
-        emailAddress: "advancedlevelenglish@example.com",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: null,
+        newsLetterPlaceHolder: null
     },
     FR: {
         copyrightText: "En anglais de niveau avancé",
-        emailAddress: "advancedlevelenglish@example.com",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: null,
+        newsLetterPlaceHolder: null
     }
 }
 

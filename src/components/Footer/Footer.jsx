@@ -1,4 +1,4 @@
-import {FOOTER_TEXT} from "../../data/static-data";
+import {FOOTER_TEXT, CONTACT_INFORMATION} from "../../data/static-data";
 import { FaFacebook, FaLinkedin, FaCopyright } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 
@@ -14,8 +14,8 @@ export default function Footer(){
         <div className={`${classes.footerContent} container`}>
             <div className={classes.mainContent}>
                 <div className={classes.socialMediaIcons}>
-                    <a href="https://www.facebook.com/anna.szakacs13" rel="noreferrer" target="_blank"><FaFacebook size={50}/></a>
-                    <a href="https://www.linkedin.com/in/anna-szak%C3%A1cs/" rel="noreferrer" target="_blank"><FaLinkedin size={50}/></a>
+                    <a href={CONTACT_INFORMATION.facebookUrl} rel="noreferrer" target="_blank"><FaFacebook size={50}/></a>
+                    <a href={CONTACT_INFORMATION.linkedinUrl} rel="noreferrer" target="_blank"><FaLinkedin size={50}/></a>
                 </div>
                 <div className={classes.info}>
                     <div>
@@ -24,13 +24,13 @@ export default function Footer(){
                     </div>
                     <div>
                         <MdAlternateEmail/>
-                        <a href={`mailto:${footerText.emailAddress}`}>{footerText.emailAddress}</a>
+                        <a href={`mailto:${CONTACT_INFORMATION.emailAddress}`}>{CONTACT_INFORMATION.emailAddress}</a>
                     </div>
                 </div>
             </div>
             {currentLanguage === "HUN" ? <div className={classes.newsLetter}>
                 <form noValidate>
-                    <InputFactory labelText="hírlevél" placeHolder="Email-cím" type="EMAIL"/>
+                    <InputFactory labelText={footerText.newsLetterText} placeHolder={footerText.newsLetterPlaceHolder} type="EMAIL"/>
                     <button className={classes.newsLetterButton} type="submit">Feliratkozás</button>
                 </form>
             </div> : ""}
