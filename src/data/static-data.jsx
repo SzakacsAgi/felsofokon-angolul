@@ -37,6 +37,33 @@ export const ERROR_TEXT = {
     "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard! \n Si le problème persiste, veuillez me le faire savoir en écrivant à l'adresse e-mail bugreport@gmail.com avec le code suivant: "
 }
 
+export const CONTACT_INFORMATION ={
+    emailAddress: "advancedlevelenglish@example.com",
+    linkedinUrl: "https://www.linkedin.com/in/anna-szak%C3%A1cs/",
+    facebookUrl: "https://www.facebook.com/anna.szakacs13"
+}
+
+export const FOOTER_TEXT = {
+    HUN: {
+        copyrightText: "Felsőfokon Angolul",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: "Hírlevél",
+        newsLetterPlaceHolder: "Email-cím"
+    },
+    ENG: {
+        copyrightText: "In advanced level English",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: null,
+        newsLetterPlaceHolder: null
+    },
+    FR: {
+        copyrightText: "En anglais de niveau avancé",
+        emailAddress: CONTACT_INFORMATION.emailAddress,
+        newsLetterText: null,
+        newsLetterPlaceHolder: null
+    }
+}
+
 export const DUMMY_HOMEPAGE_DATA = {
     aboutMe:{
         HUN: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Bemutatkozás:</span></h3>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Szia! Örülök, hogy itt vagy a weboldalamon. Engedd meg, hogy bemutatkozzam neked.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az én nevem <span style=\"font-weight: bold;\">Anna Tanár</span>, és lelkes magántanárként a célom, hogy segítsek neked elérni a tanulási célokat és felfedezni az adott tantárgy izgalmas világát.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Rendelkezem több éves tapasztalattal az oktatás terén, és személyre szabott tanulási módszereket alkalmazok, hogy segítsem diákjaimat a fejlődésben és a sikerek elérésében.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az óráimon hangsúlyt fektetek a kölcsönös kommunikációra és a pozitív tanulási környezet kialakítására. Mindig nyitott vagyok a kérdésekre, és elkötelezett vagyok az iránt, hogy támogassalak az utadon.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Ha érdeklődsz a tanulás iránt, és szeretnél segítséget kapni, ne habozz felvenni velem a kapcsolatot. Alig várom, hogy együtt elinduljunk a tanulás izgalmas útján!</p>",
