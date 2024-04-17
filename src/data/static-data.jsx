@@ -34,7 +34,7 @@ export const HEADER_TEXT = {
 export const ERROR_TEXT = {
     "HUN": "A tartalom betöltése sikertelen, kérlek próbáld újra később! \n Ha a hiba tartósan fennáll kérlek tudasd velem a bugreport@gmail.com email címen a következő szám megírásával: " ,
     "ENG" : "The content loading was unsuccessful, please try again later! \n If the issue persists, please inform me by writing to the email address bugreport@gmail.com with the following code: ",
-    "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard! \n Si le problème persiste, veuillez me le faire savoir en écrivant à l'adresse e-mail bugreport@gmail.com avec le code suivant: "
+    "FR": "Le chargement du contenu a échoué, veuillez réessayer plus tard! \n Si le problème persiste, veuillez me le faire savoir en écrivant à l'adresse email bugreport@gmail.com avec le code suivant: "
 }
 
 export const CONTACT_INFORMATION ={
@@ -47,20 +47,29 @@ export const FOOTER_TEXT = {
     HUN: {
         copyrightText: "Felsőfokon Angolul",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: "Hírlevél",
-        newsLetterPlaceHolder: "Email-cím"
+        newsLetterLabelText: "Hírlevél",
+        newsLetterPlaceHolder: "Email cím",
+        newsLetterInputError: "Az email cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
+        newsLetterButtonText: "Feliratkozás",
+        disableButtonText: "Kérlek add meg az email címed."
     },
     ENG: {
         copyrightText: "In advanced level English",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: null,
-        newsLetterPlaceHolder: null
+        newsLetterLabelText: null,
+        newsLetterPlaceHolder: null,
+        newsLetterInputError: null,
+        newsLetterButtonText: null,
+        disableButtonText: null
     },
     FR: {
         copyrightText: "En anglais de niveau avancé",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: null,
-        newsLetterPlaceHolder: null
+        newsLetterLabelText: null,
+        newsLetterPlaceHolder: null,
+        newsLetterInputError: null,
+        newsLetterButtonText: null,
+        disableButtonText: null
     }
 }
 
@@ -263,7 +272,7 @@ export const DUMMY_HOMEPAGE_DATA = {
             nameInputError: "A nevet kötelező megadni",
             email:"Email",
             emailPlaceholder: "example@gmail.com",
-            emailInputError: "Az e-mail cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
+            emailInputError: "Az email cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
             level: "Szint",
             levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Nem tudom"],
             contactCause: "Érdeklődésem tárgya",
@@ -303,7 +312,7 @@ export const DUMMY_HOMEPAGE_DATA = {
             nameInputError: "Le nom est obligatoire",
             email: "Email",
             emailPlaceholder: "example@gmail.com",
-            emailInputError: "Adresse e-mail invalide. Elle doit contenir exactement un symbole '@' et au moins un '.'",
+            emailInputError: "Adresse email invalide. Elle doit contenir exactement un symbole '@' et au moins un '.'",
             level: "Niveau",
             levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Je ne sais pas"],
             contactCause: "Objet de la demande",
