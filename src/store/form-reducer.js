@@ -1,5 +1,4 @@
 import {validateForm} from "./utils/form-util";
-
 export const ACTIONS = {
     FORM_SUBMIT_SUCCESS: "FORM_SUBMIT_SUCCESS",
     FORM_SUBMIT_FAILURE: "FORM_SUBMIT_FAILURE",
@@ -9,22 +8,24 @@ export const ACTIONS = {
     FORM_SENDING_FINISHED: "FORM_SENDING_FINISHED"
 }
 
-export function contactFormReducer(state, action) {
+export function formReducer(state, action) {
     switch (action.type) {
         case ACTIONS.FORM_VALIDATE:
-            const errors = validateForm(action.payload.validationData) ;
-            return { ...state, invalidFields: { ...state.invalidFields, ...errors }};
+            const errors = validateForm(action.payload.validationData);
+           return  state.updateFormState({ ...state, invalidFields: { ...state.invalidFields, ...errors }});
         case ACTIONS.FORM_SUBMIT_SUCCESS:
-            return { ...state, isFormSent: true };
+            return state.updateFormState({ ...state, isFormSent: true });
         case ACTIONS.FORM_SUBMIT_FAILURE:
-            return { ...state, isFormSent: false };
+            return state.updateFormState({ ...state, isFormSent: false });
         case ACTIONS.SET_INITIAL_SENT_STATE:
-            return { ...state, isFormSent: null };
+            return state.updateFormState({ ...state, isFormSent: null });
         case ACTIONS.FORM_IS_UNDER_SENDING:
-            return {...state, isSending:true}
+             state.updateFormState({ ...state, isSending:true});
+             return { ...state, isSending:true}
         case ACTIONS.FORM_SENDING_FINISHED:
-            return {...state, isSending:false}
+             state.updateFormState({ ...state, isSending:false});
+             return { ...state, isSending:false}
         default:
-            return state;
+            return state.updateFormState(state);
     }
 }

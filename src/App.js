@@ -1,8 +1,6 @@
 import './App.css';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import HeaderContextProvider from "./store/header-context";
-import ContactFormProvider from "./store/contact-form-context";
-
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent";
 import Footer from "./components/Footer/Footer";
@@ -12,7 +10,6 @@ function App() {
       <Router>
         <HeaderContextProvider>
           <Header/>
-          <ContactFormProvider>
             <Routes>
               <Route path="/home" element={<MainContent/>}/>
               <Route path="/" element={<MainContent/>}/>
@@ -26,7 +23,6 @@ function App() {
               <Route path="/translation" element={<MainContent/>}/>
               <Route path="*" element={<MainContent/>}/>
             </Routes>
-          </ContactFormProvider>
           <Footer/>
         </HeaderContextProvider>
       </Router>
