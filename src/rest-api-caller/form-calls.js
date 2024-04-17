@@ -1,18 +1,18 @@
-import {ACTIONS} from "../store/form-reducer";
+import {ACTIONS, formReducer} from "../store/form-reducer";
 import UrlProvider from "../data/url-provider";
 import {getFormData} from "../store/utils/form-util";
 import {catchErrorWithConsoleLog, throwError} from "../store/utils/fetch-util";
 
 const urlProvider = new UrlProvider();
 
-export function sendContactForm(inputFields, contactFormStateDispatcher){
+export function sendContactForm(inputFields, state){
     getFormData(inputFields)
     .then(formData => {
-        sendEmail(formData, contactFormStateDispatcher);
+        sendEmail(formData, state);
     });
 }
 
-function sendEmail(formData, contactFormStateDispatcher){
+function sendEmail(formData, state){
     fetch(urlProvider.getGetInTouchEmailSendingUrl(), {
         method: "POST",
         body: JSON.stringify({
@@ -20,17 +20,17 @@ function sendEmail(formData, contactFormStateDispatcher){
         })
     })
     .then(response => {
-        contactFormStateDispatcher({type: ACTIONS.FORM_SENDING_FINISHED});
+        let newState = formReducer(state, {type: ACTIONS.FORM_SENDING_FINISHED});
         if (response.status === 200) {
-            contactFormStateDispatcher({type: ACTIONS.FORM_SUBMIT_SUCCESS});
+            formReducer(newState, {type: ACTIONS.FORM_SUBMIT_SUCCESS});
         }
         else {
             throwError("The email sent was unsuccessful", response);
         }
     })
     .catch(error => {
-        contactFormStateDispatcher({type: ACTIONS.FORM_SENDING_FINISHED});
-        contactFormStateDispatcher({type: ACTIONS.FORM_SUBMIT_FAILURE});
+        const newState = formReducer(state, {type: ACTIONS.FORM_SENDING_FINISHED});
+        formReducer(newState, {type: ACTIONS.FORM_SUBMIT_FAILURE});
         catchErrorWithConsoleLog(error, urlProvider.getGetInTouchEmailSendingUrl());
     })
 }
