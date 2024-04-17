@@ -11,7 +11,7 @@ export default function ContactForm({contactContent}) {
     const messageInput = useRef();
     const levelSelect = useRef();
     const causeSelect = useRef();
-    const {currentLanguage, currentPage} = useHeaderContext();
+    const {currentLanguage} = useHeaderContext();
     const inputFields = {
         nameInput,
         emailInput,
