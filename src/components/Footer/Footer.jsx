@@ -5,10 +5,35 @@ import { MdAlternateEmail } from "react-icons/md";
 import classes from './Footer.module.css';
 import {useHeaderContext} from "../../store/contexts-provider";
 import InputFactory from "../Factory/InputFactory";
+import {useRef} from "react";
+import FormFactory from "../Factory/FormFactory";
+import Button from "../Button";
 
 export default function Footer(){
     const {currentLanguage} = useHeaderContext();
     const footerText = FOOTER_TEXT[currentLanguage];
+    const emailInput = useRef();
+    const inputs = {
+        email:<InputFactory required type="EMAIL" labelText={footerText.newsLetterLabelText}
+        placeHolder={footerText.newsLetterPlaceHolder} id="newsLetterEmailInput" ref={emailInput}
+        errorMessage={footerText.newsLetterInputError}/>
+    }
+    const submitButton = <Button className="button" buttonText={footerText.newsLetterButtonText} disabledText={footerText.disableButtonText}/>;
+    const FORM_CONTENT = (inputs, submitButton)=> {
+        return {
+            formIsSending: <div className="feedback-form-content">Subscribe...</div>,
+            successfulFormSending: <div className="feedback-form-content">Success</div>,
+            unsuccessfulFormSending: <div className="feedback-form-content">Not success</div>,
+            formToFill: <>
+                            {inputs.email}
+                            {submitButton}
+                        </>
+            }
+    }
+
+    function onSubmit(event, state){
+        console.log("SENDING");
+    };
 
     return <footer>
         <div className={`${classes.footerContent} container`}>
@@ -29,10 +54,7 @@ export default function Footer(){
                 </div>
             </div>
             {currentLanguage === "HUN" ? <div className={classes.newsLetter}>
-                <form noValidate>
-                    <InputFactory labelText={footerText.newsLetterText} placeHolder={footerText.newsLetterPlaceHolder} type="EMAIL"/>
-                    <button className={classes.newsLetterButton} type="submit">Feliratkozás</button>
-                </form>
+            <FormFactory inputs={inputs} submitButton={submitButton} onSubmit={onSubmit} FORM_CONTENT={FORM_CONTENT}/>
             </div> : ""}
         </div>
     </footer>

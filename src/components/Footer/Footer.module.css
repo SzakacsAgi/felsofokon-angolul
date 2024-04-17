@@ -34,18 +34,13 @@ footer{
     width: 50%;
 }
 
-.newsLetter form div{
-    display: inline-block;
+.newsLetter form{
+    position: relative;
 }
 
-.newsLetterButton{
-    width: fit-content;
-    background-color: #9b9090;
-    border-radius: 20px;
-    padding: 7px 17px;
-    border: none;
-    cursor: pointer;
-    margin-left: 5px;
+.newsLetter form div{
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .info div{

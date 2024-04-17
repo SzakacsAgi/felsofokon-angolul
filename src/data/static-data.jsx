@@ -47,20 +47,29 @@ export const FOOTER_TEXT = {
     HUN: {
         copyrightText: "Felsőfokon Angolul",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: "Hírlevél",
-        newsLetterPlaceHolder: "Email-cím"
+        newsLetterLabelText: "Hírlevél",
+        newsLetterPlaceHolder: "Email-cím",
+        newsLetterInputError: "Az e-mail cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
+        newsLetterButtonText: "Feliratkozás",
+        disableButtonText: "Kérlek add meg az email-címed."
     },
     ENG: {
         copyrightText: "In advanced level English",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: null,
-        newsLetterPlaceHolder: null
+        newsLetterLabelText: null,
+        newsLetterPlaceHolder: null,
+        newsLetterInputError: null,
+        newsLetterButtonText: null,
+        disableButtonText: null
     },
     FR: {
         copyrightText: "En anglais de niveau avancé",
         emailAddress: CONTACT_INFORMATION.emailAddress,
-        newsLetterText: null,
-        newsLetterPlaceHolder: null
+        newsLetterLabelText: null,
+        newsLetterPlaceHolder: null,
+        newsLetterInputError: null,
+        newsLetterButtonText: null,
+        disableButtonText: null
     }
 }
 
