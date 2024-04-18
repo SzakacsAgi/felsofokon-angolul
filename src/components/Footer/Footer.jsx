@@ -8,6 +8,7 @@ import InputFactory from "../Factory/InputFactory";
 import {useRef} from "react";
 import FormFactory from "../Factory/FormFactory";
 import Button from "../Button";
+import { sendNewsLetterSignUpForm } from "../../rest-api-caller/form-calls";
 
 export default function Footer(){
     const {currentLanguage} = useHeaderContext();
@@ -21,9 +22,9 @@ export default function Footer(){
     const submitButton = <Button className="button" buttonText={footerText.newsLetterButtonText} disabledText={footerText.disableButtonText}/>;
     const FORM_CONTENT = (inputs, submitButton)=> {
         return {
-            formIsSending: <div className="feedback-form-content">Subscribe...</div>,
-            successfulFormSending: <div className="feedback-form-content">Success</div>,
-            unsuccessfulFormSending: <div className="feedback-form-content">Not success</div>,
+            formIsSending: <div className={classes.newsLetterFeedback}>{footerText.sendingText}</div>,
+            successfulFormSending: <div className={classes.newsLetterFeedback}>{footerText.successfulFeedback}</div>,
+            unsuccessfulFormSending: <div className={classes.newsLetterFeedback}>{footerText.unsuccessfulFeedback}</div>,
             formToFill: <>
                             {inputs.email}
                             {submitButton}
@@ -32,7 +33,7 @@ export default function Footer(){
     }
 
     function onSubmit(event, state){
-        console.log("SENDING");
+        sendNewsLetterSignUpForm({email:emailInput.current.value, list:currentLanguage}, state)
     };
 
     return <footer>

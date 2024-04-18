@@ -53,6 +53,14 @@ class UrlProvider {
     getClientTownDetectUrl(){
         return "./.netlify/functions/getGeoLocation";
     }
+
+    getAddRecipientApiUrl(){
+        return "https://api.sendgrid.com/v3/marketing/contacts";
+    }
+
+    getAddSubscriberUrl(){
+        return "./.netlify/functions/addSubsciber";
+    }
 }
 
 module.exports = UrlProvider;

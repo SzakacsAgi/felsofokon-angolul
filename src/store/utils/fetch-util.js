@@ -30,12 +30,17 @@ function catchErrorWithConsoleLog(error, server){
 }
 
 function catchErrorWithResponse(error, server){
-    console.error(`Error: ${error.cause.statusCode} - ${error.cause.statusText}, with ${server}`);
     if(error.cause){
+        console.error(`Error: ${error.cause.statusCode} - ${error.cause.statusText}, with ${server}`);
         return createResponse(error.cause.statusCode, error.cause.statusText);
     } else{
+        console.error(`Error: ${error}, with ${server}`);
         return createResponse(500, `${server} is unavailable`);
     }
+}
+
+function isStatusSuccessStatusCode(statusCode){
+    return statusCode >= 200 && statusCode < 300;
 }
 
 module.exports = {
@@ -43,5 +48,6 @@ module.exports = {
     isPayloadProvided,
     throwError,
     catchErrorWithConsoleLog,
-    catchErrorWithResponse
+    catchErrorWithResponse,
+    isStatusSuccessStatusCode
 }

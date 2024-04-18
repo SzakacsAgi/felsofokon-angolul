@@ -43,6 +43,10 @@ footer{
     margin-right: 5px;
 }
 
+.newsLetterFeedback{
+    padding: 0 40px;
+}
+
 .info div{
     display: flex;
     align-items: center;
