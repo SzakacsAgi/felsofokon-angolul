@@ -1,7 +1,7 @@
 import {ACTIONS, formReducer} from "../store/form-reducer";
 import UrlProvider from "../data/url-provider";
 import {getFormData} from "../store/utils/form-util";
-import {catchErrorWithConsoleLog, throwError, isStatusSuccessStatusCode} from "../store/utils/fetch-util";
+import {catchErrorWithConsoleLog, throwError, isSuccesful} from "../store/utils/fetch-util";
 
 const urlProvider = new UrlProvider();
 
@@ -22,7 +22,7 @@ function sendEmail(formData, state, url){
     })
     .then(response => {
         let newState = formReducer(state, {type: ACTIONS.FORM_SENDING_FINISHED});
-        if (isStatusSuccessStatusCode(response.status)) {
+        if (isSuccesful(response)) {
             formReducer(newState, {type: ACTIONS.FORM_SUBMIT_SUCCESS});
         }
         else {
@@ -51,7 +51,7 @@ export function getClientTown(ip, formInputs){
         })
 }
 
-export function sendNewsLetterSignUpForm(inputFields, state){
+export function subscribeOnNewsletter(inputFields, state){
     const url = urlProvider.getAddSubscriberUrl();
     sendEmail(inputFields, state, url);
 }

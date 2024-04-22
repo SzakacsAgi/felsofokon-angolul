@@ -8,7 +8,7 @@ import InputFactory from "../Factory/InputFactory";
 import {useRef} from "react";
 import FormFactory from "../Factory/FormFactory";
 import Button from "../Button";
-import { sendNewsLetterSignUpForm } from "../../rest-api-caller/form-calls";
+import { subscribeOnNewsletter } from "../../rest-api-caller/form-calls";
 
 export default function Footer(){
     const {currentLanguage} = useHeaderContext();
@@ -33,7 +33,7 @@ export default function Footer(){
     }
 
     function onSubmit(event, state){
-        sendNewsLetterSignUpForm({email:emailInput.current.value, list:currentLanguage}, state)
+        subscribeOnNewsletter({email:emailInput.current.value, list:currentLanguage}, state)
     };
 
     return <footer>

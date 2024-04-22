@@ -1,51 +1,30 @@
 const UrlProvider = require('../../src/data/url-provider');
 const urlProvider = new UrlProvider();
-const {createResponse, isPayloadProvided, catchErrorWithResponse, throwError, isStatusSuccessStatusCode} = require('../../src/store/utils/fetch-util');
+const { catchErrorWithResponse } = require('../../src/store/utils/fetch-util');
+const apiCaller = require("../../src/rest-api-caller/api-caller");
+const requestBodyMaker = require("../../src/rest-api-caller/request-body-maker");
+const requestHeaderMaker = require("../../src/rest-api-caller/request-header-maker");
+const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker")
 
-exports.handler = async function(event) {
-    console.info(`Payload is: ${event.body}`);
-    if(!isPayloadProvided(event)){
-        return createResponse(400, "Payload is required");
+class NewsletterSubscriber{
+    constructor(){
+        this.apiUrl = urlProvider.getAddRecipientApiUrl();
     }
-    const apiUrl = urlProvider.getAddRecipientApiUrl();
-    console.info(apiUrl);
+    async subscribe(event){
+        const requestBody = requestBodyMaker.makeRequestBodyToAddSubscriber(event.body);
+        const requestHeader = requestHeaderMaker.makeRequestHeaderToAddSubscriber();
+        const feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
+        return await apiCaller.sendPutRequest(this.apiUrl, requestHeader, requestBody, feedbackTexts);
+    }
+}
+
+const newsletterSubscriber = new NewsletterSubscriber();
+exports.handler = async function(event) {
     try{
-        const requestBody = JSON.parse(event.body);
-        const NETLIFY_EMAILS_SECRET = process.env.NETLIFY_EMAILS_SECRET;
-        const SUBSCRIBE_API_KEY = process.env.SUBSCRIBE_API_KEY;
-        const LIST_NAME = `${requestBody.list}_NEWSLETTER_LIST_ID`
-        const LIST_TO_SUBSCRIBE = process.env[LIST_NAME];
-        const headers = {
-            "netlify-emails-secret": NETLIFY_EMAILS_SECRET,
-            "Authorization": `Bearer ${SUBSCRIBE_API_KEY}`,
-            "Content-Type":"application/json"
-        }
-        const data = {
-            "list_ids":[LIST_TO_SUBSCRIBE],
-            "contacts": [
-              {
-                "email": requestBody.email,
-              }
-            ]
-        };
-        console.log("Authorization header: ",headers.Authorization);
-        console.log("List name: ",LIST_NAME);
-        console.log("List ID: ",LIST_TO_SUBSCRIBE);
-
-         const response = await fetch(apiUrl, {
-             headers: headers,
-             method: "PUT",
-             body: JSON.stringify(data)
-            });
-
-        if(isStatusSuccessStatusCode(response.status)){
-            return createResponse(response.status, "Newsletter sign up was successful");
-        }
-        else{
-            throwError("Newsletter sign up was unsuccessful", response);
-        }
+        return await newsletterSubscriber.subscribe(event);
     }
     catch(error){
+        const apiUrl = newsletterSubscriber.apiUrl;
         return catchErrorWithResponse(error, apiUrl);
     }
 }

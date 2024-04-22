@@ -9,9 +9,9 @@ function createResponse(statusCode, message, data = {}) {
     }
 }
 
-function isPayloadProvided(event){
-    const bodyObject = JSON.parse(event.body);
-    return !(event.body === null || Object.keys(bodyObject).length === 0);
+function isPayloadProvided(requestBody){
+    const bodyObject = JSON.parse(requestBody);
+    return !(Object.keys(bodyObject).length === 0);
 }
 
 function throwError(errorText, response){
@@ -39,8 +39,19 @@ function catchErrorWithResponse(error, server){
     }
 }
 
-function isStatusSuccessStatusCode(statusCode){
-    return statusCode >= 200 && statusCode < 300;
+function isSuccesful(response){
+    const statusCode = response.status;
+    return 200 <= statusCode && statusCode < 300;
+}
+
+function handleResponse(apiUrl, response, {successfullText, unsuccessfullText}, data={}){
+    if(isSuccesful(response)){
+        console.info(`${apiUrl} response was ${response.status}, ${successfullText}}`);
+        return createResponse(response.status, successfullText, data);
+    }
+    else{
+        throwError(unsuccessfullText, response);
+    }
 }
 
 module.exports = {
@@ -49,5 +60,6 @@ module.exports = {
     throwError,
     catchErrorWithConsoleLog,
     catchErrorWithResponse,
-    isStatusSuccessStatusCode
+    isSuccesful,
+    handleResponse
 }

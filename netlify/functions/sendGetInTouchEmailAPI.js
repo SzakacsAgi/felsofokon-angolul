@@ -1,38 +1,30 @@
 const UrlProvider = require('../../src/data/url-provider');
 const urlProvider = new UrlProvider();
-const {createResponse, isPayloadProvided, catchErrorWithResponse, throwError} = require('../../src/store/utils/fetch-util');
-const GET_IN_TOUCH_EMAIL_DATA = require("../../src/data/emails-data");
+const { catchErrorWithResponse } = require('../../src/store/utils/fetch-util');
+const apiCaller = require("../../src/rest-api-caller/api-caller");
+const requestBodyMaker = require("../../src/rest-api-caller/request-body-maker");
+const requestHeaderMaker = require("../../src/rest-api-caller/request-header-maker");
+const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker")
 
-exports.handler = async function(event) {
-    console.info(`Payload is: ${event.body}`);
-    if(!isPayloadProvided(event)){
-        return createResponse(400, "Payload is required");
+class GetInTouchEmilSendler{
+    constructor(){
+        this.apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
     }
-    const apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
-    console.info(apiUrl);
-    try{
-        const requestBody = JSON.parse(event.body);
-         const NETLIFY_EMAILS_SECRET = process.env.NETLIFY_EMAILS_SECRET;
-         const response = await fetch(apiUrl, {
-             headers: {
-                 "netlify-emails-secret": NETLIFY_EMAILS_SECRET
-             },
-             method: "POST",
-             body: JSON.stringify({
-                 ...GET_IN_TOUCH_EMAIL_DATA,
-                 parameters: {...requestBody}
-             })
-         });
+    async send(event){
+        const requestBody = requestBodyMaker.makeRequestBodyToSendGetInTouchEmail(event.body);
+        const requestHeader = requestHeaderMaker.makeRequestHeaderToSendGetInTouchEmail();
+        const feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
+        return await apiCaller.sendPostRequest(this.apiUrl, requestHeader, requestBody, feedbackTexts);
+    }
+}
 
-        if(response.status === 200){
-            console.info(`${apiUrl} response was 200, email sending was successful`);
-            return createResponse(200, "Contact email sent!");
-        }
-        else{
-            throwError("Email sending was unsuccessful", response);
-        }
+const getInTouchEmilSendler = new GetInTouchEmilSendler();
+exports.handler = async function(event) {
+    try{
+        return await getInTouchEmilSendler.send(event);
     }
     catch(error){
+        const apiUrl = getInTouchEmilSendler.apiUrl;
         return catchErrorWithResponse(error, apiUrl);
     }
 }
