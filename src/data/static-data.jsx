@@ -51,7 +51,10 @@ export const FOOTER_TEXT = {
         newsLetterPlaceHolder: "Email cím",
         newsLetterInputError: "Az email cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
         newsLetterButtonText: "Feliratkozás",
-        disableButtonText: "Kérlek add meg az email címed."
+        disableButtonText: "Kérlek add meg az email címed.",
+        sendingText: "Feliratkozás...",
+        successfulFeedback: "Köszönöm, hogy feliratkozál a hírlevélre!",
+        unsuccessfulFeedback: "Valami hiba történt a feliratkozás során, kérlek próbáld újra később!",
     },
     ENG: {
         copyrightText: "In advanced level English",
@@ -60,7 +63,10 @@ export const FOOTER_TEXT = {
         newsLetterPlaceHolder: null,
         newsLetterInputError: null,
         newsLetterButtonText: null,
-        disableButtonText: null
+        disableButtonText: null,
+        sendingText: null,
+        successfulFeedback: null,
+        unsuccessfulFeedback: null
     },
     FR: {
         copyrightText: "En anglais de niveau avancé",
@@ -69,7 +75,10 @@ export const FOOTER_TEXT = {
         newsLetterPlaceHolder: null,
         newsLetterInputError: null,
         newsLetterButtonText: null,
-        disableButtonText: null
+        disableButtonText: null,
+        sendingText: null,
+        successfulFeedback: null,
+        unsuccessfulFeedback: null
     }
 }
 

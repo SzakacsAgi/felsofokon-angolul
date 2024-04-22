@@ -1,19 +1,20 @@
 import {ACTIONS, formReducer} from "../store/form-reducer";
 import UrlProvider from "../data/url-provider";
 import {getFormData} from "../store/utils/form-util";
-import {catchErrorWithConsoleLog, throwError} from "../store/utils/fetch-util";
+import {catchErrorWithConsoleLog, throwError, isSuccesful} from "../store/utils/fetch-util";
 
 const urlProvider = new UrlProvider();
 
 export function sendContactForm(inputFields, state){
+    const url = urlProvider.getGetInTouchEmailSendingUrl();
     getFormData(inputFields)
     .then(formData => {
-        sendEmail(formData, state);
+        sendEmail(formData, state, url);
     });
 }
 
-function sendEmail(formData, state){
-    fetch(urlProvider.getGetInTouchEmailSendingUrl(), {
+function sendEmail(formData, state, url){
+    fetch(url, {
         method: "POST",
         body: JSON.stringify({
             ...formData,
@@ -21,7 +22,7 @@ function sendEmail(formData, state){
     })
     .then(response => {
         let newState = formReducer(state, {type: ACTIONS.FORM_SENDING_FINISHED});
-        if (response.status === 200) {
+        if (isSuccesful(response)) {
             formReducer(newState, {type: ACTIONS.FORM_SUBMIT_SUCCESS});
         }
         else {
@@ -48,4 +49,9 @@ export function getClientTown(ip, formInputs){
                 city: `${jsonResponse.data.location.city} (${jsonResponse.data.country.isoNameFull})`
             };
         })
+}
+
+export function subscribeOnNewsletter(inputFields, state){
+    const url = urlProvider.getAddSubscriberUrl();
+    sendEmail(inputFields, state, url);
 }

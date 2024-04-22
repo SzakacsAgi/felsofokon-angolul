@@ -1,11 +1,13 @@
-const GET_IN_TOUCH_EMAIL_DATA = {
+const enviromentVariableProvider = require("./environment-variable-provider");
+
+ const GET_IN_TOUCH_EMAIL_DATA = {
     from: {
-        email: process.env.REACT_APP_GET_IN_TOUCH_FROM_EMAIL,
+        email: enviromentVariableProvider.getGetInTouchFromEmail(),
         name: "Kapcsolatfelvételi kérelem"
     },
-    to: process.env.REACT_APP_GET_IN_TOUCH_TO_EMAIL,
+    to: enviromentVariableProvider.getGetInTouchToEmail(),
     subject: "Új ember szeretné felvenni a kapcsolatot veled",
     text: "Szép napot Anna! Valaki szeretné felvenni veled a kapcsolatot",
 }
 
-module.exports = GET_IN_TOUCH_EMAIL_DATA;
+module.exports = GET_IN_TOUCH_EMAIL_DATA

@@ -6,25 +6,25 @@ const requestBodyMaker = require("../../src/rest-api-caller/request-body-maker")
 const requestHeaderMaker = require("../../src/rest-api-caller/request-header-maker");
 const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker")
 
-class GetInTouchEmilSendler{
+class NewsletterSubscriber{
     constructor(){
-        this.apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
-        this.requestHeader = requestHeaderMaker.makeRequestHeaderToSendGetInTouchEmail();
+        this.apiUrl = urlProvider.getAddRecipientApiUrl();
+        this.requestHeader = requestHeaderMaker.makeRequestHeaderToAddSubscriber();
         this.feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
     }
-    async send(event){
-        const requestBody = requestBodyMaker.makeRequestBodyToSendGetInTouchEmail(event.body);
-        return await apiCaller.sendPostRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
+    async subscribe(event){
+        const requestBody = requestBodyMaker.makeRequestBodyToAddSubscriber(event.body);
+        return await apiCaller.sendPutRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
     }
 }
 
-const getInTouchEmilSendler = new GetInTouchEmilSendler();
+const newsletterSubscriber = new NewsletterSubscriber();
 exports.handler = async function(event) {
     try{
-        return await getInTouchEmilSendler.send(event);
+        return await newsletterSubscriber.subscribe(event);
     }
     catch(error){
-        const apiUrl = getInTouchEmilSendler.apiUrl;
+        const apiUrl = newsletterSubscriber.apiUrl;
         return catchErrorWithResponse(error, apiUrl);
     }
 }
