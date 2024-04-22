@@ -1,4 +1,4 @@
-const { createResponse, isPayloadProvided, handleResponse, isSuccesful } = require("../store/utils/fetch-util");
+const { createResponse, isPayloadProvided, handleResponse } = require("../store/utils/fetch-util");
 
 class ApiCaller{
     async sendGetRequest(url, requestHeader, feedbackTexts){}
