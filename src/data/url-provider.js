@@ -63,4 +63,4 @@ class UrlProvider {
     }
 }
 
-module.exports = UrlProvider;
+module.exports = new UrlProvider();

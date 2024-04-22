@@ -1,9 +1,9 @@
 import {ACTIONS, formReducer} from "../store/form-reducer";
-import UrlProvider from "../data/url-provider";
+import urlProvider from "../data/url-provider";
 import {getFormData} from "../store/utils/form-util";
 import {catchErrorWithConsoleLog, throwError, isSuccesful} from "../store/utils/fetch-util";
-
-const urlProvider = new UrlProvider();
+import { clientSideApiCaller } from "./api-caller";
+import feedbackMaker  from "./rest-call-feedback-maker";
 
 export function sendContactForm(inputFields, state){
     const url = urlProvider.getGetInTouchEmailSendingUrl();
@@ -14,12 +14,7 @@ export function sendContactForm(inputFields, state){
 }
 
 function sendEmail(formData, state, url){
-    fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-            ...formData,
-        })
-    })
+    clientSideApiCaller.sendPostRequest(url, {}, JSON.stringify(formData), {})
     .then(response => {
         let newState = formReducer(state, {type: ACTIONS.FORM_SENDING_FINISHED});
         if (isSuccesful(response)) {
@@ -37,11 +32,14 @@ function sendEmail(formData, state, url){
 }
 
 export function getClientIpAddress(){
-   return fetch(urlProvider.getClientIpAddressUrl()).then(response => response.json());
+    const url = urlProvider.getClientIpAddressUrl();
+    const feedback = feedbackMaker.makeFeedbackTogetClientIpAddress();
+    return clientSideApiCaller.sendGetRequest(url, {}, feedback)
+    .then(response => response.json());
 }
 
 export function getClientTown(ip, formInputs){
-    return fetch(urlProvider.getClientTownDetectUrl(), {method: "GET", headers:ip})
+    return clientSideApiCaller.sendGetRequest(urlProvider.getClientTownDetectUrl(), {ip:ip.ip}, {})
         .then(response => response.json())
         .then(jsonResponse => {
             return {

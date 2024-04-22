@@ -1,7 +1,6 @@
-const UrlProvider = require('../../src/data/url-provider');
-const urlProvider = new UrlProvider();
+const urlProvider = require('../../src/data/url-provider');
 const { catchErrorWithResponse } = require('../../src/store/utils/fetch-util');
-const apiCaller = require("../../src/rest-api-caller/api-caller");
+const { serverSideApiCaller } = require("../../src/rest-api-caller/api-caller");
 const requestBodyMaker = require("../../src/rest-api-caller/request-body-maker");
 const requestHeaderMaker = require("../../src/rest-api-caller/request-header-maker");
 const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker")
@@ -14,7 +13,7 @@ class GetInTouchEmilSendler{
     }
     async send(event){
         const requestBody = requestBodyMaker.makeRequestBodyToSendGetInTouchEmail(event.body);
-        return await apiCaller.sendPostRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
+        return await serverSideApiCaller.sendPostRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
     }
 }
 

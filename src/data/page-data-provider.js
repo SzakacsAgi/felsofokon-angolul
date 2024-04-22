@@ -1,26 +1,21 @@
 import {DUMMY_HOMEPAGE_DATA} from "./static-data";
-import UrlProvider from "./url-provider";
-const urlProvider = new UrlProvider();
+import urlProvider from "./url-provider";
+import { clientSideApiCaller } from "../rest-api-caller/api-caller"
+import { catchErrorWithConsoleLog } from "../store/utils/fetch-util"
+import restCallFeedbackMaker from "../rest-api-caller/rest-call-feedback-maker.js"
 
 export async function getPageContentData(page) {
-    const data = DUMMY_HOMEPAGE_DATA;
     const url = urlProvider.getPageContentApiUrl(page);
+    const feedbackTexts = restCallFeedbackMaker.makeFeedbackToGetPageData();
     try{
-        const response = await fetch(url);
-        if (response.ok){
-            return await data;
-        }
-        else if (!response.ok) {
-            const error = new Error(`Response was not ok. Status code: ${response.status}`);
-            error.cause = response.status;
-            throw error;
-        }
-        else if(URL.includes("error")){
-            const error = new Error("Page not found");
-            error.cause = "404";
-            throw error;
-        }
+        return await clientSideApiCaller.sendGetRequest(url, {}, feedbackTexts);
     } catch (error) {
-        throw error;
+        catchErrorWithConsoleLog(feedbackTexts, url);
+    }
+}
+
+export function getPageContentDataDummy(page){
+    if(page === "home"){
+        return DUMMY_HOMEPAGE_DATA;
     }
 }

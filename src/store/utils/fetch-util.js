@@ -44,8 +44,11 @@ function isSuccesful(response){
     return 200 <= statusCode && statusCode < 300;
 }
 
-function handleResponse(apiUrl, response, {successfullText, unsuccessfullText}, data={}){
+function handleResponse(apiUrl, response, {successfullText, unsuccessfullText}, data={}, side){
     if(isSuccesful(response)){
+        if(side === "CLIENT"){
+            return response;
+        }
         console.info(`${apiUrl} response was ${response.status}, ${successfullText}}`);
         return createResponse(response.status, successfullText, data);
     }

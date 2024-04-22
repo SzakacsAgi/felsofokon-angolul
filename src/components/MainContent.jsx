@@ -2,7 +2,7 @@ import {useHeaderContext} from "../store/contexts-provider";
 import {useEffect, useState} from "react";
 import {ERROR_TEXT} from "../data/static-data";
 import MainContentFactory from "./Factory/MainContentFactory";
-import {getPageContentData} from "../data/page-data-provider";
+import {getPageContentDataDummy} from "../data/page-data-provider";
 
 function isFetchFinished(data, error){
     return data || Object.values(error).length > 0;
@@ -42,7 +42,7 @@ export default function MainContent() {
         async function fetchData(){
             try {
                 setInitialState();
-                const pageContentData = await getPageContentData(currentPage);
+                const pageContentData = await getPageContentDataDummy(currentPage);
                 if (pageContentData) {
                    savePageContentData(pageContentData);
                 }
