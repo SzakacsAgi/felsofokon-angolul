@@ -1,10 +1,9 @@
-const UrlProvider = require('../../src/data/url-provider');
-const urlProvider = new UrlProvider();
+const urlProvider = require('../../src/data/url-provider');
 const { catchErrorWithResponse } = require('../../src/store/utils/fetch-util');
-const apiCaller = require("../../src/rest-api-caller/api-caller");
+const { serverSideApiCaller } = require("../../src/rest-api-caller/api-caller");
 const requestBodyMaker = require("../../src/rest-api-caller/request-body-maker");
 const requestHeaderMaker = require("../../src/rest-api-caller/request-header-maker");
-const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker")
+const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedback-maker");
 
 class NewsletterSubscriber{
     constructor(){
@@ -14,7 +13,7 @@ class NewsletterSubscriber{
     }
     async subscribe(event){
         const requestBody = requestBodyMaker.makeRequestBodyToAddSubscriber(event.body);
-        return await apiCaller.sendPutRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
+        return await serverSideApiCaller.sendPutRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
     }
 }
 

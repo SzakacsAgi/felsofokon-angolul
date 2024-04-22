@@ -8,7 +8,7 @@ class RequestBodyMaker{
             ...GET_IN_TOUCH_EMAIL_DATA,
             parameters: {...JSONRequestBody}
         }
-        return JSON.stringify(body);
+        return Object.keys(body.parameters).length === 0 ? JSON.stringify({}) : JSON.stringify(body);
     }
 
     makeRequestBodyToAddSubscriber(requestBody){
