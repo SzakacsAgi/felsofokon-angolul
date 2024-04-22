@@ -36,8 +36,6 @@ class ClientSideApiCaller extends ApiCaller{
     }
 }
 
-
-
 class ServerSideApiCaller extends ApiCaller{
     constructor(){
         super();
