@@ -9,12 +9,12 @@ const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedb
 class GetInTouchEmilSendler{
     constructor(){
         this.apiUrl = urlProvider.getGetInTouchTemplateApiUrl();
+        this.requestHeader = requestHeaderMaker.makeRequestHeaderToSendGetInTouchEmail();
+        this.feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
     }
     async send(event){
         const requestBody = requestBodyMaker.makeRequestBodyToSendGetInTouchEmail(event.body);
-        const requestHeader = requestHeaderMaker.makeRequestHeaderToSendGetInTouchEmail();
-        const feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
-        return await apiCaller.sendPostRequest(this.apiUrl, requestHeader, requestBody, feedbackTexts);
+        return await apiCaller.sendPostRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
     }
 }
 

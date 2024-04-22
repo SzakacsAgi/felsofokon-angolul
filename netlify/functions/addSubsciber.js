@@ -9,12 +9,12 @@ const restCallFeedbackMaker = require("../../src/rest-api-caller/rest-call-feedb
 class NewsletterSubscriber{
     constructor(){
         this.apiUrl = urlProvider.getAddRecipientApiUrl();
+        this.requestHeader = requestHeaderMaker.makeRequestHeaderToAddSubscriber();
+        this.feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
     }
     async subscribe(event){
         const requestBody = requestBodyMaker.makeRequestBodyToAddSubscriber(event.body);
-        const requestHeader = requestHeaderMaker.makeRequestHeaderToAddSubscriber();
-        const feedbackTexts = restCallFeedbackMaker.makeFeedbackToSendGetInTouchEmail();
-        return await apiCaller.sendPutRequest(this.apiUrl, requestHeader, requestBody, feedbackTexts);
+        return await apiCaller.sendPutRequest(this.apiUrl, this.requestHeader, requestBody, this.feedbackTexts);
     }
 }
 
