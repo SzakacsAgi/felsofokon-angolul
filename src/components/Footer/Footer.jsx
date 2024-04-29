@@ -5,13 +5,15 @@ import { MdAlternateEmail } from "react-icons/md";
 import classes from './Footer.module.css';
 import {useHeaderContext} from "../../store/contexts-provider";
 import InputFactory from "../Factory/InputFactory";
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import FormFactory from "../Factory/FormFactory";
 import Button from "../Button";
 import { subscribeOnNewsletter } from "../../rest-api-caller/form-calls";
 
 export default function Footer(){
-    const {currentLanguage} = useHeaderContext();
+    const {currentLanguage, currentPage} = useHeaderContext();
+    const [rerender, setRerender] = useState(false);
+
     const footerText = FOOTER_TEXT[currentLanguage];
     const emailInput = useRef();
     const inputs = {
@@ -36,7 +38,11 @@ export default function Footer(){
         subscribeOnNewsletter({email:emailInput.current.value, list:currentLanguage}, state)
     };
 
-    return <footer>
+    useEffect(() => {
+        setRerender(prevState => !prevState);
+    }, [currentPage]);
+    
+    return <footer key={rerender}>
         <div className={`${classes.footerContent} container`}>
             <div className={classes.mainContent}>
                 <div className={classes.socialMediaIcons}>
