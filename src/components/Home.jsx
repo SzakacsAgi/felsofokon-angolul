@@ -27,8 +27,8 @@ export default function Home({pageContent}){
             <section className={classes.section}>
                 <SectionTitle className={classes.sectionTitle} title={servicesSectionContent.title}/>
                 <div className={classes.servicesContainer}>
-                    {isError ? <div>{pageContent}</div> : servicesSectionContent.data.map(service => {
-                        return <div className={classes.serviceCard}>
+                    {isError ? <div>{pageContent}</div> : servicesSectionContent.data.map((service, index)=> {
+                        return <div key={`${service.title}${index}`} className={classes.serviceCard}>
                             <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.serviceTitle)}></div>
                             <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.description)}></div>
                             <a href={service.navigation}>{servicesSectionContent.detailsText}</a>
