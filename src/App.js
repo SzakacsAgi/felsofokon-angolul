@@ -4,6 +4,7 @@ import HeaderContextProvider from "./store/header-context";
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent";
 import Footer from "./components/Footer/Footer";
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/translation" element={<MainContent/>}/>
               <Route path="*" element={<MainContent/>}/>
             </Routes>
+            <ScrollToTopButton/>
           <Footer/>
         </HeaderContextProvider>
       </Router>
