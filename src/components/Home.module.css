@@ -19,6 +19,7 @@
     background-position-y: center;
     border: 3px solid black;
     box-sizing: content-box;
+    box-shadow: rgb(80, 71, 71) 25px 25px 0, rgb(80, 71, 71) 25px -25px 0;
 }
 
 .section:first-of-type{
