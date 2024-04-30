@@ -12,17 +12,17 @@ function App() {
         <HeaderContextProvider>
           <Header/>
             <Routes>
-              <Route path="/home" element={<MainContent/>}/>
-              <Route path="/" element={<MainContent/>}/>
-              <Route path="/prices" element={<MainContent/>}/>
-              <Route path="/about" element={<MainContent/>}/>
-              <Route path="/services" element={<MainContent/>}/>
-              <Route path="/contact" element={<MainContent/>}/>
-              <Route path="/blog" element={<MainContent/>}/>
-              <Route path="/general-english-lesson" element={<MainContent/>}/>
-              <Route path="/matura-examination" element={<MainContent/>}/>
-              <Route path="/translation" element={<MainContent/>}/>
-              <Route path="*" element={<MainContent/>}/>
+              <Route path="/home" element={<MainContent key='/home/'/>}/>
+              <Route path="/" element={<MainContent key='/'/>}/>
+              <Route path="/prices" element={<MainContent key='/prices/'/>}/>
+              <Route path="/about" element={<MainContent key='/about/'/>}/>
+              <Route path="/services" element={<MainContent key='/services/'/>}/>
+              <Route path="/contact" element={<MainContent  key='/contact/'/>}/>
+              <Route path="/blog" element={<MainContent key='/blog/'/>}/>
+              <Route path="/general-english-lesson" element={<MainContent key='/general-english-lesson/'/>}/>
+              <Route path="/matura-examination" element={<MainContent key='/matura-examination/'/>}/>
+              <Route path="/translation" element={<MainContent key='/translation/'/>}/>
+              <Route path="*" element={<MainContent key='/*/'/>}/>
             </Routes>
             <ScrollToTopButton/>
           <Footer/>

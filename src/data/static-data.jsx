@@ -82,6 +82,66 @@ export const FOOTER_TEXT = {
     }
 }
 
+const FORM_DATA = {
+    HUN:{
+        name:"Név",
+        namePlaceholder: "Szakács Ágnes",
+        nameInputError: "A nevet kötelező megadni",
+        email:"Email",
+        emailPlaceholder: "example@gmail.com",
+        emailInputError: "Az email cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
+        level: "Szint",
+        levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Nem tudom"],
+        contactCause: "Érdeklődésem tárgya",
+        contactCauseOptions: ["Általános nyelvóra", "Nyelvvizsga felkészítés", "Érettségi felkészítés", "Fordítás", "Egyéb"],
+        message: "Üzenet",
+        messagePlaceHolder: "Írd ide az üzenetet...",
+        messageTextareaError: "Az üzenetet kötelező megadni",
+        sendButtonText: "Küldés",
+        disabledButtonText: "Az űrlap kitöltése nem megfelelő! Kérlek tölts ki minden *-al jelölt mezőt.",
+        successfulSendText: "Köszönöm, hogy felvetted velem a kapcsolatot! Örömmel értesítelek, hogy sikeresen megkaptam az üzenetedet.\nHamarosan fel fogom venni veled a megadott elérhetőségeden a kapcsolatot, addig is legyen szép napod!",
+        unsuccessfulSendText: "Valami hiba történt a kapcsolat felvétele során, az űrlapot nem sikerült elküldeni. Kérlek próbáld újra később!\nHa a probléma tartósan fennáll kérlek jelezd nekem a bugreport@gmail.com email címen."
+    },
+    ENG:{
+        name: "Name",
+        namePlaceholder: "Agnes Szakacs",
+        nameInputError: "Name is mandatory",
+        email: "Email",
+        emailPlaceholder: "example@gmail.com",
+        emailInputError: "Invalid email address. It must contain exactly one '@' symbol and at least one '.'",
+        level: "Level",
+        levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Don't know"],
+        contactCause: "Subject of inquiry",
+        contactCauseOptions: ["General language lesson", "Language exam preparation", "High school exam preparation", "Translation", "Other"],
+        message: "Message",
+        messagePlaceHolder: "Type your message here...",
+        messageTextareaError: "Message is mandatory",
+        sendButtonText: "Send",
+        disabledButtonText: "Form submission is invalid! Please fill in all fields marked with *.",
+        successfulSendText:"Thank you for contacting me! I'm pleased to inform you that I have successfully received your message.\nI will reach out to you shortly at the provided contact information. In the meantime, have a great day!",
+        unsuccessfulSendText: `An error occurred while establishing the connection, the form could not be submitted. Please try again later!\nIf the problem persists, please notify me at bugreport@gmail.com.`
+    },
+    FR:{
+        name: "Nom",
+        namePlaceholder: "Agnes Szakacs",
+        nameInputError: "Le nom est obligatoire",
+        email: "Email",
+        emailPlaceholder: "example@gmail.com",
+        emailInputError: "Adresse email invalide. Elle doit contenir exactement un symbole '@' et au moins un '.'",
+        level: "Niveau",
+        levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Je ne sais pas"],
+        contactCause: "Objet de la demande",
+        contactCauseOptions: ["Cours de langue général", "Préparation aux examens de langue", "Préparation aux examens du lycée", "Traduction", "Autre"],
+        message: "Message",
+        messagePlaceHolder: "Écrivez votre message ici...",
+        messageTextareaError: "Le message est obligatoire",
+        sendButtonText: "Envoyer",
+        disabledButtonText: "La soumission du formulaire n'est pas valide! Veuillez remplir tous les champs marqués d'un *.",
+        successfulSendText: "Merci de m'avoir contacté ! Je suis heureux de vous informer que j'ai bien reçu votre message.\nJe vous contacterai sous peu aux coordonnées fournies. En attendant, passez une bonne journée !",
+        unsuccessfulSendText:"Une erreur s'est produite lors de l'établissement de la connexion, le formulaire n'a pas pu être envoyé. Veuillez réessayer plus tard!\nSi le problème persiste, veuillez me le signaler à l'adresse bugreport@gmail.com."
+    }
+}
+
 export const DUMMY_HOMEPAGE_DATA = {
     aboutMe:{
         HUN: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Bemutatkozás:</span></h3>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Szia! Örülök, hogy itt vagy a weboldalamon. Engedd meg, hogy bemutatkozzam neked.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az én nevem <span style=\"font-weight: bold;\">Anna Tanár</span>, és lelkes magántanárként a célom, hogy segítsek neked elérni a tanulási célokat és felfedezni az adott tantárgy izgalmas világát.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Rendelkezem több éves tapasztalattal az oktatás terén, és személyre szabott tanulási módszereket alkalmazok, hogy segítsem diákjaimat a fejlődésben és a sikerek elérésében.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az óráimon hangsúlyt fektetek a kölcsönös kommunikációra és a pozitív tanulási környezet kialakítására. Mindig nyitott vagyok a kérdésekre, és elkötelezett vagyok az iránt, hogy támogassalak az utadon.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Ha érdeklődsz a tanulás iránt, és szeretnél segítséget kapni, ne habozz felvenni velem a kapcsolatot. Alig várom, hogy együtt elinduljunk a tanulás izgalmas útján!</p>",
@@ -276,63 +336,33 @@ export const DUMMY_HOMEPAGE_DATA = {
     contact:{
         HUN:{
             title:"Lépj kapcsolatba velem",
-            name:"Név",
-            namePlaceholder: "Szakács Ágnes",
-            nameInputError: "A nevet kötelező megadni",
-            email:"Email",
-            emailPlaceholder: "example@gmail.com",
-            emailInputError: "Az email cím nem érvényes. Tartalmaznia kell pontosan egy '@' jelet és legalább egy '.'-ot",
-            level: "Szint",
-            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Nem tudom"],
-            contactCause: "Érdeklődésem tárgya",
-            contactCauseOptions: ["Általános nyelvóra", "Nyelvvizsga felkészítés", "Érettségi felkészítés", "Fordítás", "Egyéb"],
-            message: "Üzenet",
-            messagePlaceHolder: "Írd ide az üzenetet...",
-            messageTextareaError: "Az üzenetet kötelező megadni",
-            sendButtonText: "Küldés",
-            disabledButtonText: "Az űrlap kitöltése nem megfelelő! Kérlek tölts ki minden *-al jelölt mezőt.",
-            successfulSendText: "Köszönöm, hogy felvetted velem a kapcsolatot! Örömmel értesítelek, hogy sikeresen megkaptam az üzenetedet.\nHamarosan fel fogom venni veled a megadott elérhetőségeden a kapcsolatot, addig is legyen szép napod!",
-            unsuccessfulSendText: "Valami hiba történt a kapcsolat felvétele során, az űrlapot nem sikerült elküldeni. Kérlek próbáld újra később!\nHa a probléma tartósan fennáll kérlek jelezd nekem a bugreport@gmail.com email címen."
+            formData: FORM_DATA["HUN"]
         },
         ENG:{
             title:"Get in touch with me",
-            name: "Name",
-            namePlaceholder: "Agnes Szakacs",
-            nameInputError: "Name is mandatory",
-            email: "Email",
-            emailPlaceholder: "example@gmail.com",
-            emailInputError: "Invalid email address. It must contain exactly one '@' symbol and at least one '.'",
-            level: "Level",
-            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Don't know"],
-            contactCause: "Subject of inquiry",
-            contactCauseOptions: ["General language lesson", "Language exam preparation", "High school exam preparation", "Translation", "Other"],
-            message: "Message",
-            messagePlaceHolder: "Type your message here...",
-            messageTextareaError: "Message is mandatory",
-            sendButtonText: "Send",
-            disabledButtonText: "Form submission is invalid! Please fill in all fields marked with *.",
-            successfulSendText:"Thank you for contacting me! I'm pleased to inform you that I have successfully received your message.\nI will reach out to you shortly at the provided contact information. In the meantime, have a great day!",
-            unsuccessfulSendText: `An error occurred while establishing the connection, the form could not be submitted. Please try again later!\nIf the problem persists, please notify me at bugreport@gmail.com.`
+            formData: FORM_DATA["ENG"]
         },
         FR:{
             title:"Me contacter",
-            name: "Nom",
-            namePlaceholder: "Agnes Szakacs",
-            nameInputError: "Le nom est obligatoire",
-            email: "Email",
-            emailPlaceholder: "example@gmail.com",
-            emailInputError: "Adresse email invalide. Elle doit contenir exactement un symbole '@' et au moins un '.'",
-            level: "Niveau",
-            levelOptions: ["A1", "A2", "B1", "B2", "C1", "C2", "Je ne sais pas"],
-            contactCause: "Objet de la demande",
-            contactCauseOptions: ["Cours de langue général", "Préparation aux examens de langue", "Préparation aux examens du lycée", "Traduction", "Autre"],
-            message: "Message",
-            messagePlaceHolder: "Écrivez votre message ici...",
-            messageTextareaError: "Le message est obligatoire",
-            sendButtonText: "Envoyer",
-            disabledButtonText: "La soumission du formulaire n'est pas valide! Veuillez remplir tous les champs marqués d'un *.",
-            successfulSendText: "Merci de m'avoir contacté ! Je suis heureux de vous informer que j'ai bien reçu votre message.\nJe vous contacterai sous peu aux coordonnées fournies. En attendant, passez une bonne journée !",
-            unsuccessfulSendText:"Une erreur s'est produite lors de l'établissement de la connexion, le formulaire n'a pas pu être envoyé. Veuillez réessayer plus tard!\nSi le problème persiste, veuillez me le signaler à l'adresse bugreport@gmail.com."
+            formData: FORM_DATA["FR"]
         }
+    }
+}
+
+export const DUMMY_CONTACT_PAGE_DATA = {
+    HUN:{
+        title:"Lépj kapcsolatba velem",
+        subTitle:"Kérdésed van? Csak írj egy üzenetet.",
+        formData: FORM_DATA["HUN"]
+    },
+    ENG:{
+        title: "Get in Touch with Me",
+        subTitle: "Do you have a question? Just send a message.",
+        formData: FORM_DATA["ENG"]
+    },
+    FR:{
+        title: "Prenez contact avec moi",
+        subTitle: "Vous avez une question ? Envoyez juste un message.",
+        formData: FORM_DATA["FR"]
     }
 }
