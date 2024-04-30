@@ -32,7 +32,7 @@ function MainContent({page, errorText, pageContentData}){
                 mainContent = <Prices/>;
                 break;
             case "contact":
-                mainContent = <Contact/>;
+                mainContent = <Contact pageContent={pageContent}/>;
                 break;
             case "blog":
                 mainContent = <Blog/>;

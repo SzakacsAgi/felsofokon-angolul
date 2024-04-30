@@ -21,28 +21,28 @@ export default function ContactForm({contactContent}) {
         currentLanguage
     }
     const inputs = {
-        name:<InputFactory required type="TEXT" labelText={contactContent.name}
-        placeHolder={contactContent.namePlaceholder} id="nameInput" ref={nameInput}
+        name:<InputFactory required type="TEXT" labelText={contactContent.formData.name}
+        placeHolder={contactContent.formData.namePlaceholder} id="nameInput" ref={nameInput}
         errorMessage={contactContent.nameInputError}/>,
-        email:<InputFactory required type="EMAIL" labelText={contactContent.email}
-        placeHolder={contactContent.emailPlaceholder} id="emailInput" ref={emailInput}
-        errorMessage={contactContent.emailInputError}/>,
-        levelSelect:<InputFactory required type="SELECT" labelText={contactContent.level} id="levelSelect"
-        options={contactContent.levelOptions} contactContent={contactContent}
+        email:<InputFactory required type="EMAIL" labelText={contactContent.formData.email}
+        placeHolder={contactContent.formData.emailPlaceholder} id="emailInput" ref={emailInput}
+        errorMessage={contactContent.formData.emailInputError}/>,
+        levelSelect:<InputFactory required type="SELECT" labelText={contactContent.formData.level} id="levelSelect"
+        options={contactContent.formData.levelOptions} contactContent={contactContent}
         ref={levelSelect}/>,
-        causeSelect:<InputFactory required type="SELECT" labelText={contactContent.contactCause} id="contactCauseSelect"
-        options={contactContent.contactCauseOptions} contactContent={contactContent}
+        causeSelect:<InputFactory required type="SELECT" labelText={contactContent.formData.contactCause} id="contactCauseSelect"
+        options={contactContent.formData.contactCauseOptions} contactContent={contactContent}
         ref={causeSelect}/>,
-        message: <InputFactory required type="TEXTAREA" labelText={contactContent.message}
-        placeHolder={contactContent.messagePlaceHolder} id="messageTextarea"
-        ref={messageInput} errorMessage={contactContent.messageTextareaError}/>
+        message: <InputFactory required type="TEXTAREA" labelText={contactContent.formData.message}
+        placeHolder={contactContent.formData.messagePlaceHolder} id="messageTextarea"
+        ref={messageInput} errorMessage={contactContent.formData.messageTextareaError}/>
     }
-    const submitButton = <Button className="button" buttonText={contactContent.sendButtonText} disabledText={contactContent.disabledButtonText} />;
+    const submitButton = <Button className="button" buttonText={contactContent.formData.sendButtonText} disabledText={contactContent.formData.disabledButtonText} />;
     const FORM_CONTENT = (inputs, submitButton)=> {
         return {
-            formIsSending: <div className="feedback-form-content">{`${contactContent.sendButtonText}...`}</div>,
-            successfulFormSending: <div className="feedback-form-content">{contactContent.successfulSendText}</div>,
-            unsuccessfulFormSending: <div className="feedback-form-content">{contactContent.unsuccessfulSendText}</div>,
+            formIsSending: <div className="feedback-form-content">{`${contactContent.formData.sendButtonText}...`}</div>,
+            successfulFormSending: <div className="feedback-form-content">{contactContent.formData.successfulSendText}</div>,
+            unsuccessfulFormSending: <div className="feedback-form-content">{contactContent.formData.unsuccessfulSendText}</div>,
             formToFill: <div className="form-content">
                 <div className="flex-row">
                    {inputs.name}
