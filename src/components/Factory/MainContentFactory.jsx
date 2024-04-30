@@ -21,7 +21,7 @@ function MainContent({page, errorText, pageContentData}){
                 mainContent = <AboutMe/>;
                 break;
             case "services":
-                mainContent = <Services/>;
+                mainContent = <Services pageContent={pageContent}/>;
                 break;
             case "general-english-lesson":
             case "matura-examination":
