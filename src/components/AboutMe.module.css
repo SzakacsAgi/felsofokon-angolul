@@ -1,0 +1,53 @@
+.aboutMeContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 0;
+}
+
+.introductionPart{
+    font-family: "Roboto", sans-serif;
+    max-width: 400px;
+    margin-right: 100px;
+    position: relative;
+}
+
+.name{
+    font-weight: 700;
+    font-size:80px;
+    text-shadow: rgba(0, 0, 0, 0.29) 8px 4px 4px;
+    letter-spacing: 4px;
+}
+
+.text{
+    font-size: 20px;
+}
+
+.biggerImage{
+    position: relative;
+    min-width:500px;
+    height:100%;
+    height:auto;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../assets/portraits/about-me-bigger-image.jpg"); /* Add your image URL here */
+}
+
+.smallerImage{
+    background-image: url("../assets/portraits/about-me-smaller-image.jpg");
+    position: absolute;
+    left: -260px;
+    width: 70%;
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.references{
+    margin-bottom: 80px;
+}

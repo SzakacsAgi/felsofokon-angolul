@@ -213,6 +213,55 @@ const SERVICES_DATA = {
     }
 }
 
+const REFERENCES_DATA = {
+    HUN: [
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Nagyon hálás vagyok Anna tanárnőnek a kiváló nyelvoktatásért! A leckéi mindig érdekesek és interaktívak voltak, és a türelme segített nekem magabiztosan megtanulni a magyar nyelvet. Köszönöm, Anna, a támogatásodat és a szakértelmedet!</p>",
+            name:"Donko Ilona"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Igen elégedett vagyok Anna tanárnővel! Rendkívül elkötelezett a diákok fejlődése iránt, és mindig készen áll, hogy segítsen. Az  órái mindig inspirálóak, és könnyen érthetővé teszi a magyar nyelvet. Köszönöm, Anna, hogy ilyen remek tanár vagy!</p>",
+            name: "Fodor Ildikó"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Csak dicsérni tudom Anna tanárnőt a szaktudásáért és a lelkesedéséért! Mindig képes volt érdekessé tenni a nyelvórát, és a kreatív módszerei segítettek abban, hogy gyorsabban elsajátítsam a magyar nyelvet. Nagyon köszönöm, Anna, hogy ilyen motiváló és segítőkész tanár vagy!</p>",
+            name: "Kósa Zsuska"
+        }
+    ], 
+    ENG: [
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
+            name: "Benjamin Taylor"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very satisfied with Teacher Anna! She is extremely committed to the students' progress and always ready to help. Her classes are always inspiring, and she makes the Hungarian language easy to understand. Thank you, Anna, for being such a great teacher!</p>",
+            name: "Olivia Anderson"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I can only praise Teacher Anna for her expertise and enthusiasm! She always managed to make the language class interesting, and her creative methods helped me learn Hungarian more quickly. Thank you very much, Anna, for being such a motivating and helpful teacher!</p>",
+            name: "Jonathan Miller"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
+            name: "Cameron Ray"
+        },
+    ],
+    FR: [
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Je suis très reconnaissant envers l'enseignante Anna pour son excellente pédagogie linguistique ! Ses cours étaient toujours intéressants et interactifs, et sa patience m'a aidé à apprendre la langue hongroise avec confiance. Merci, Anna, pour votre soutien et votre expertise !</p>",
+            name: "Camille Dupont"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je suis très satisfait de l'enseignante Anna ! Elle est extrêmement dévouée au progrès des étudiants et toujours prête à aider. Ses cours sont toujours inspirants, et elle rend la langue hongroise facile à comprendre. Merci, Anna, d'être une si bonne enseignante !</p>",
+            name: "Alexandre Martin"
+        },
+        {
+            feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je ne peux que louer l'enseignante Anna pour son expertise et son enthousiasme ! Elle a toujours réussi à rendre le cours de langue intéressant, et ses méthodes créatives m'ont aidé à apprendre le hongrois plus rapidement. Merci beaucoup, Anna, d'être une enseignante si motivante et utile !</p>",
+            name: "Sophie Lefèvre"
+        }
+    ]
+}
+
 export const DUMMY_HOMEPAGE_DATA = {
     aboutMe:{
         HUN: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Bemutatkozás:</span></h3>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Szia! Örülök, hogy itt vagy a weboldalamon. Engedd meg, hogy bemutatkozzam neked.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az én nevem <span style=\"font-weight: bold;\">Anna Tanár</span>, és lelkes magántanárként a célom, hogy segítsek neked elérni a tanulási célokat és felfedezni az adott tantárgy izgalmas világát.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Rendelkezem több éves tapasztalattal az oktatás terén, és személyre szabott tanulási módszereket alkalmazok, hogy segítsem diákjaimat a fejlődésben és a sikerek elérésében.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Az óráimon hangsúlyt fektetek a kölcsönös kommunikációra és a pozitív tanulási környezet kialakítására. Mindig nyitott vagyok a kérdésekre, és elkötelezett vagyok az iránt, hogy támogassalak az utadon.</p>\n<p style=\"font-family: 'book antiqua', palatino, serif;\">Ha érdeklődsz a tanulás iránt, és szeretnél segítséget kapni, ne habozz felvenni velem a kapcsolatot. Alig várom, hogy együtt elinduljunk a tanulás izgalmas útján!</p>",
@@ -227,58 +276,15 @@ export const DUMMY_HOMEPAGE_DATA = {
     references:{
         HUN: {
             title: "Referenciáim",
-            data: [
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Nagyon hálás vagyok Anna tanárnőnek a kiváló nyelvoktatásért! A leckéi mindig érdekesek és interaktívak voltak, és a türelme segített nekem magabiztosan megtanulni a magyar nyelvet. Köszönöm, Anna, a támogatásodat és a szakértelmedet!</p>",
-                    name:"Donko Ilona"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Igen elégedett vagyok Anna tanárnővel! Rendkívül elkötelezett a diákok fejlődése iránt, és mindig készen áll, hogy segítsen. Az  órái mindig inspirálóak, és könnyen érthetővé teszi a magyar nyelvet. Köszönöm, Anna, hogy ilyen remek tanár vagy!</p>",
-                    name: "Fodor Ildikó"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Csak dicsérni tudom Anna tanárnőt a szaktudásáért és a lelkesedéséért! Mindig képes volt érdekessé tenni a nyelvórát, és a kreatív módszerei segítettek abban, hogy gyorsabban elsajátítsam a magyar nyelvet. Nagyon köszönöm, Anna, hogy ilyen motiváló és segítőkész tanár vagy!</p>",
-                    name: "Kósa Zsuska"
-                }
-            ]
+            data: REFERENCES_DATA["HUN"]
         },
         ENG: {
             title: "My references",
-            data: [
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
-                    name: "Benjamin Taylor"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very satisfied with Teacher Anna! She is extremely committed to the students' progress and always ready to help. Her classes are always inspiring, and she makes the Hungarian language easy to understand. Thank you, Anna, for being such a great teacher!</p>",
-                    name: "Olivia Anderson"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I can only praise Teacher Anna for her expertise and enthusiasm! She always managed to make the language class interesting, and her creative methods helped me learn Hungarian more quickly. Thank you very much, Anna, for being such a motivating and helpful teacher!</p>",
-                    name: "Jonathan Miller"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">I am very grateful to Teacher Anna for the excellent language teaching! Her lessons were always interesting and interactive, and her patience helped me learn the Hungarian language with confidence. Thank you, Anna, for your support and expertise!</p>",
-                    name: "Cameron Ray"
-                },
-            ]
+            data: REFERENCES_DATA["ENG"]
         },
         FR: {
             title: "Mes références",
-            data: [
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;\">Je suis très reconnaissant envers l'enseignante Anna pour son excellente pédagogie linguistique ! Ses cours étaient toujours intéressants et interactifs, et sa patience m'a aidé à apprendre la langue hongroise avec confiance. Merci, Anna, pour votre soutien et votre expertise !</p>",
-                    name: "Camille Dupont"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je suis très satisfait de l'enseignante Anna ! Elle est extrêmement dévouée au progrès des étudiants et toujours prête à aider. Ses cours sont toujours inspirants, et elle rend la langue hongroise facile à comprendre. Merci, Anna, d'être une si bonne enseignante !</p>",
-                    name: "Alexandre Martin"
-                },
-                {
-                    feedback: "<p style=\"font-family: 'Roboto', palatino, sans-serif;;\">Je ne peux que louer l'enseignante Anna pour son expertise et son enthousiasme ! Elle a toujours réussi à rendre le cours de langue intéressant, et ses méthodes créatives m'ont aidé à apprendre le hongrois plus rapidement. Merci beaucoup, Anna, d'être une enseignante si motivante et utile !</p>",
-                    name: "Sophie Lefèvre"
-                }
-            ]
+            data: REFERENCES_DATA["FR"]
         }
     },
     faq:{
@@ -377,4 +383,36 @@ export const DUMMY_SERVICES_PAGE_DATA = {
     HUN: SERVICES_DATA["HUN"],
     ENG: SERVICES_DATA["ENG"],
     FR: SERVICES_DATA["FR"]
+}
+
+export const DUMMY_ABOUT_ME_PAGE_DATA = {
+    HUN: {
+        name: "Anna",
+        text: `<p>5 éves tapasztalattal a nyelvek online tanításában hatékony módszereket és személyre szabott megközelítéseket fejlesztettem ki, hogy minden diák egyedi tanulási igényeit kielégítsem.</p>
+        <p>Legyen szó kezdőkről vagy arról, hogy finomítsa nyelvi készségeit, itt vagyok, hogy végigvezessem Önt a nyelvtanulás útján. Az óráim interaktívak, lebilincselőek és az Ön céljaihoz igazodnak.</p>
+        <p>Induljunk el együtt ezen izgalmas kalandon, és nyissuk ki az ajtókat az új lehetőségek előtt a nyelvtanulás által!</p>
+        <p>Nyugodtan lépjen kapcsolatba velem a <a href="/contact">itt</a>, ha bármilyen kérdése van, vagy órát szeretne időpontot egyeztetni. Alig várom, hogy találkozzunk!</p>
+        `,
+        title: "Ezeket mondták rólam...",
+        referencesData: REFERENCES_DATA["HUN"]
+    },
+    ENG: {
+        name: "Anna",
+        text: `<p style="font-family: 'book antiqua', palatino, serif;">With 5 years of experience teaching languages online, I've developed effective methods and personalized approaches to meet the unique learning needs of each student.</p>
+        <p style="font-family: 'book antiqua', palatino, serif;">Whether you're a beginner or looking to refine your language skills, I'm here to guide you through your language learning journey. My classes are interactive, engaging, and tailored to your goals.</p>
+        <p style="font-family: 'book antiqua', palatino, serif;">Let's embark on this exciting adventure together and unlock the doors to new opportunities through language learning!</p>
+        <p style="font-family: 'book antiqua', palatino, serif;">Feel free to contact me <a href="/contact">here</a> for any inquiries or to schedule a lesson. I look forward to meeting you!</p>`,
+        title: "They said these things about me...",
+        referencesData: REFERENCES_DATA["ENG"]
+    },
+    FR: {
+        name: "Anna",
+        text: `<p>Avec 5 années d'expérience dans l'enseignement des langues en ligne, j'ai développé des méthodes efficaces et des approches personnalisées pour répondre aux besoins d'apprentissage uniques de chaque élève.</p>
+        <p>Que vous soyez débutant ou que vous cherchiez à perfectionner vos compétences linguistiques, je suis là pour vous guider tout au long de votre parcours d'apprentissage des langues. Mes cours sont interactifs, captivants et adaptés à vos objectifs.</p>
+        <p>Lançons-nous ensemble dans cette aventure passionnante et ouvrons les portes à de nouvelles opportunités grâce à l'apprentissage des langues !</p>
+        <p>N'hésitez pas à me contacter <a href="/contact">ici</a>, pour toute question ou pour fixer un rendez-vous. J'ai hâte de vous rencontrer !</p>
+        `,
+        title: "Ils ont dit ces choses sur moi...",
+        referencesData: REFERENCES_DATA["FR"]
+    }
 }

@@ -32,12 +32,13 @@ export default function Home({pageContent}){
                 </div>
             </section>
             <section className={classes.section}>
-                <SectionTitle title={referencesSectionContent.title}/>
-                <div className="slider">
-                    {isError ? <div>{pageContent}</div> :
-                        <ReferencesSlider sliderContent={referencesSectionContent.data}></ReferencesSlider>
-                    }
+                <div className='container'>
+                    <SectionTitle title={referencesSectionContent.title}/>
+                    <div className="slider">
+                        {isError ? <div>{pageContent}</div> : <ReferencesSlider sliderContent={referencesSectionContent.data}></ReferencesSlider>}
+                    </div>
                 </div>
+                
             </section>
             <section className={classes.section}>
                 <SectionTitle title={faqSectionContent.title}/>
