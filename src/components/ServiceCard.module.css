@@ -1,0 +1,29 @@
+.serviceCard{
+    max-width: 300px;
+    background-color: #d9d9d9;
+    padding: 30px 20px;
+    border-radius: 43.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.25) 6px 7px 5px;
+}
+
+.serviceCard a{
+    align-self: flex-start;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    background-color: #9b9090;
+    border-radius: 20px;
+    padding:7px 17px;
+}
+
+.serviceCard div{
+    text-align: center;
+}
+
+.serviceCard:not(:last-of-type){
+    margin-right: 20px;
+}

@@ -1,4 +1,4 @@
-import {DUMMY_CONTACT_PAGE_DATA, DUMMY_HOMEPAGE_DATA} from "./static-data";
+import {DUMMY_CONTACT_PAGE_DATA, DUMMY_HOMEPAGE_DATA, DUMMY_SERVICES_PAGE_DATA} from "./static-data";
 import urlProvider from "./url-provider";
 import { clientSideApiCaller } from "../rest-api-caller/api-caller"
 import { catchErrorWithConsoleLog } from "../store/utils/fetch-util"
@@ -20,5 +20,11 @@ export function getPageContentDataDummy(page){
     }
     if(page === "contact"){
         return DUMMY_CONTACT_PAGE_DATA;
+    }
+    if(page === "services"){
+        return DUMMY_SERVICES_PAGE_DATA;
+    }
+    else{
+        return {done:"done"}
     }
 }

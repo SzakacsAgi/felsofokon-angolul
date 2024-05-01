@@ -6,6 +6,7 @@ import FAQ from "./FAQ";
 import {isErrorOccurred, sanitizeHTMLContent} from "../store/utils/content-displayer-util";
 import './ContactForm.css'
 import ContactForm from "./ContactForm";
+import ServiceCard from './ServiceCard';
 
 export default function Home({pageContent}){
     const {currentLanguage} = useHeaderContext();
@@ -25,19 +26,13 @@ export default function Home({pageContent}){
                 <div className={classes.img}/>
             </section>
             <section className={classes.section}>
-                <SectionTitle className={classes.sectionTitle} title={servicesSectionContent.title}/>
+                <SectionTitle title={servicesSectionContent.title}/>
                 <div className={classes.servicesContainer}>
-                    {isError ? <div>{pageContent}</div> : servicesSectionContent.data.map((service, index)=> {
-                        return <div key={`${service.title}${index}`} className={classes.serviceCard}>
-                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.serviceTitle)}></div>
-                            <div dangerouslySetInnerHTML={sanitizeHTMLContent(service.description)}></div>
-                            <a href={service.navigation}>{servicesSectionContent.detailsText}</a>
-                        </div>
-                    })}
+                    {isError ? <div>{pageContent}</div> : servicesSectionContent.data.map((service) => <ServiceCard cardInfo={service} buttonText={servicesSectionContent.detailsText}/>)}
                 </div>
             </section>
             <section className={classes.section}>
-                <SectionTitle className={classes.sectionTitle} title={referencesSectionContent.title}/>
+                <SectionTitle title={referencesSectionContent.title}/>
                 <div className="slider">
                     {isError ? <div>{pageContent}</div> :
                         <ReferencesSlider sliderContent={referencesSectionContent.data}></ReferencesSlider>
@@ -45,7 +40,7 @@ export default function Home({pageContent}){
                 </div>
             </section>
             <section className={classes.section}>
-                <SectionTitle className={classes.sectionTitle} title={faqSectionContent.title}/>
+                <SectionTitle title={faqSectionContent.title}/>
                 <div className="faq">
                     {isError ? <div>{pageContent}</div> :
                         <FAQ faqContent={faqSectionContent.data}/>
@@ -53,7 +48,7 @@ export default function Home({pageContent}){
                 </div>
             </section>
             <section className={classes.section}>
-                <SectionTitle className={classes.sectionTitle} title={contactSectionContent.title}/>
+                <SectionTitle title={contactSectionContent.title}/>
                 <div className="contact">
                     {isError ? <div>{pageContent}</div> : <ContactForm contactContent={contactSectionContent}/>}
                 </div>
