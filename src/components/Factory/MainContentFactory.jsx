@@ -18,7 +18,7 @@ function MainContent({page, errorText, pageContentData}){
                 mainContent = <Home pageContent={pageContent}/>;
                 break;
             case "about":
-                mainContent = <AboutMe/>;
+                mainContent = <AboutMe pageContent={pageContent}/>;
                 break;
             case "services":
                 mainContent = <Services pageContent={pageContent}/>;
