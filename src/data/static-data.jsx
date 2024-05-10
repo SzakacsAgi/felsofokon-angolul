@@ -150,19 +150,17 @@ const SERVICES_DATA = {
             {
                 serviceTitle: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Általános Nyelvórák</span></h3>",
                 description: "<p style=\"font-family: 'book antiqua', palatino, serif;\">Indulj el a nyelvmesterség útján személyre szabott órákkal, amelyek a szintednek megfelelnek. A szókincsépítéstől a nyelvtan alapjain át az óráink minden aspektusát lefedik a teljes körű tanulási élmény érdekében.</p>",
-                navigation: "general-english-lesson"
             },
             {
                 serviceTitle: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Professzionális Fordítási Szolgáltatások</span></h3>",
                 description: "<p style=\"font-family: 'book antiqua', palatino, serif;\">Pontos és megbízható fordításra van szükséged? Szakértői fordítási szolgáltatást nyújtok dokumentumokhoz, cikkekhez és különféle tartalomtípusokhoz. Biztosítsd a tiszta és pontos kommunikációt választott nyelveden.</p>",
-                navigation: "translation"
             },
             {
                 serviceTitle: "<h3><span style=\"font-family: 'book antiqua', palatino, serif;\">Matura Vizsgára Felkészítés</span></h3>",
                 description: "<p style=\"font-family: 'book antiqua', palatino, serif;\">Szerezz kiemelkedő eredményt a Matura vizsgán célzott felkészüléssel. Az összes vizsgarészre kiterjedően a szakosodott programunk a kulcsképességekre, stratégiákra és gyakorlati anyagokra összpontosít a magabiztosságod és sikerességed növelése érdekében a nagy napra.</p>",
-                navigation: "matura-examination"
             }
         ],
+
     },
     ENG:{
         title: "My Services",
