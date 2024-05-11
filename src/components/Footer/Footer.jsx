@@ -21,7 +21,7 @@ export default function Footer(){
         placeHolder={footerText.newsLetterPlaceHolder} id="newsLetterEmailInput" ref={emailInput}
         errorMessage={footerText.newsLetterInputError}/>
     }
-    const submitButton = <Button className="button" buttonText={footerText.newsLetterButtonText} disabledText={footerText.disableButtonText}/>;
+    const submitButton = <Button className="button" id="newsletter-button" buttonText={footerText.newsLetterButtonText} disabledText={footerText.disableButtonText}/>;
     const FORM_CONTENT = (inputs, submitButton)=> {
         return {
             formIsSending: <div className={classes.newsLetterFeedback}>{footerText.sendingText}</div>,
@@ -43,11 +43,11 @@ export default function Footer(){
     }, [currentPage]);
     
     return <footer key={rerender}>
-        <div className={`${classes.footerContent} container`}>
+        <div className={`${classes.footerContent} edge-container`}>
             <div className={classes.mainContent}>
                 <div className={classes.socialMediaIcons}>
-                    <a href={CONTACT_INFORMATION.facebookUrl} rel="noreferrer" target="_blank"><FaFacebook size={50}/></a>
-                    <a href={CONTACT_INFORMATION.linkedinUrl} rel="noreferrer" target="_blank"><FaLinkedin size={50}/></a>
+                    <a href={CONTACT_INFORMATION.facebookUrl} className="facebook-icon" rel="noreferrer" target="_blank"><FaFacebook style={{ color: "#0866ff" }}/></a>
+                    <a href={CONTACT_INFORMATION.linkedinUrl} rel="noreferrer" target="_blank"><FaLinkedin style={{color: "#0a66c2"}}/></a>
                 </div>
                 <div className={classes.info}>
                     <div>
