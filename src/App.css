@@ -1,5 +1,76 @@
+@import url('./fonts.css');
+
 #root{
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+}
+
+:root{
+    --title-font-size: 27px;
+    --menu-points-font-size: 15px;
+    --flag-size:28px;
+    --active-decoration-top: 23px;
+
+    --container-padding: 20px;
+    --box-shadow:  rgba(0, 0, 0, 0.25) 0 6px 10.3px;
+
+    --main-bg-color: rgb(255,214,214);
+    --text-main-color: black;
+    --main-font-family: "Monserrat", "sans-serif";
+    --secondary-font-family: "Roboto", sans-serif;
+    --menu-points-font-family: "Playfair Display", serif;
+}
+
+.edge-container{
+    padding: 0 var(--container-padding);
+}
+
+@media (max-width: 520px) {
+    :root{
+        --title-font-size: 23px;
+        --container-padding: 15px; 
+    }
+}
+
+@media (max-width: 450px) {
+    :root{
+        --title-font-size: 20px; 
+        --container-padding: 10px; 
+    }
+}
+
+@media (max-width: 992px) {
+    :root{
+        --title-font-size: 25px; 
+        --container-padding: 20px;
+        --menu-points-font-size: 18px;
+        --flag-size: 38px; 
+    }
+}
+
+@media (min-width: 992px) {
+    :root{
+        --title-font-size: 26px; 
+        --container-padding: 23px;
+        --menu-points-font-size: 19px;
+        --flag-size: 40px; 
+        --active-decoration-top: 26px;
+    }
+}
+
+@media (min-width: 1100px) {
+    :root{
+        --container-padding: 28px;
+    }
+}
+
+@media (min-width: 1600px) {
+    :root{
+        --title-font-size: 32px; 
+        --container-padding: 80px;
+        --menu-points-font-size: 22px;
+        --flag-size: 42px; 
+        --active-decoration-top: 32px;
+    }
 }
