@@ -1,6 +1,6 @@
 export const HEADER_TEXT = {
     HUN:{
-        title:"Felsőfokon angolul",
+        title:"Felsőfokon Angolul",
         home:"Főoldal",
         about:"Rólam",
         services:"Szolgáltatások",
@@ -10,12 +10,11 @@ export const HEADER_TEXT = {
         blog:"Blog"
     },
     ENG:{
-        title:"In advanced level English",
-        home:"Homepage",
-        about:"About me",
-        services:"Services",
+        title:"Advanced English",
+        home:"Home",
+        about:"About",
+        services:"Lessons",
         menuPoints:[{"general-english-lesson":"General english class"}, {"matura-examination":"Maturity exam preparation"}, {translation:"Translation"}],
-        prices:"Prices",
         contact:"Contact",
         blog:"Blog"
     },

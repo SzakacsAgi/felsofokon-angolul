@@ -5,11 +5,11 @@ function getPathName(object){
     return Object.keys(object)[0];
 }
 
-export default function NavItem({children, pageName, menuPoints}){
+export default function NavItem({children, pageName, menuPoints, onClick}){
     const {currentPage, onMenuPointClick} = useHeaderContext();
 
     return (
-        <li className={`${menuPoints ? "nav-item dropdown" : "nav-item"}`}>
+        <li className={`${menuPoints ? "nav-item dropdown" : "nav-item"}`} onClick={onClick}>
             <Link to={`/${pageName}`}
                   className={`nav-link ${currentPage === pageName ? 'active' : ''}`}
                   aria-current="page" onClick={() => onMenuPointClick(pageName) } >
@@ -24,5 +24,4 @@ export default function NavItem({children, pageName, menuPoints}){
             }
         </li>
     )
-
 }

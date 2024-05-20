@@ -22,6 +22,7 @@ function headerReducer(state, action){
     if (action.type === 'FLAG_CLICK') {
         initialValueProvider.setLanguageToStorage("LOCAL", initialValueProvider.getLanguageFromStorage("SESSION"));
         initialValueProvider.setLanguageToStorage("SESSION", action.payload);
+        
         return {
             ...state,
             currentLanguage: action.payload
