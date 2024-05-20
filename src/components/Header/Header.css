@@ -1,148 +1,159 @@
 header {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    background-color: var(--main-bg-color);
-    padding: 29px 0;
-    box-shadow: var(--box-shadow);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: var(--main-bg-color);
+  padding: 29px 0;
+  box-shadow: var(--box-shadow);
 }
 
 h1 {
-    margin: 0;
-    font-size: var(--title-font-size);
-    font-family: var(--main-font-family);
-    font-weight: 500;
-    padding: 0;
+  margin: 0;
+  font-size: var(--title-font-size);
+  font-family: var(--main-font-family);
+  font-weight: 500;
+  padding: 0;
 }
 
 .navbar-nav {
-    margin: 0;
-    align-items: center;
+  margin: 0;
+  align-items: center;
 }
 
 .nav-link {
-    font-size: var(--menu-points-font-size);
-    font-family: var(--menu-points-font-family);
-    font-weight: 400;
-    padding: 0 !important;
-    margin-right: 1.4vw;
-    color: var(--text-main-color);
+  font-size: var(--menu-points-font-size);
+  font-family: var(--menu-points-font-family);
+  font-weight: 400;
+  padding: 0 !important;
+  margin-right: 1.4vw;
+  color: var(--text-main-color);
 }
 
 .active {
-    position: relative;
+  position: relative;
 }
 
-nav>div {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
+nav > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .flex-item {
-    flex-basis: 80%;
+  flex-basis: 80%;
 }
 
 @media (min-width: 992px) {
-    .flex-item{
-        flex-basis: unset;
-    }
+  .flex-item {
+    flex-basis: unset;
+  }
 }
 
 .navbar-toggler {
-    padding: 0;
-    border: none;
+  padding: 0;
+  border: none;
 }
 
 .navbar-toggler:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .navbar-toggler-icon {
-    width: 1.5em;
+  width: 1.5em;
 }
 
 .nav-item a,
 .dropdown li a {
-    cursor: pointer;
-    align-items: center;
+  cursor: pointer;
+  align-items: center;
 }
 
 .dropdown {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown li {
-    width: min-content;
-    margin-top: 8px;
+  width: min-content;
 }
 
 .dropdown-toggle {
-    border: unset;
+  border: unset;
 }
 
 .dropdown-menu {
-    background-color: unset;
-    border: none;
-    min-width: unset;
-    padding: 0;
+  background-color: unset;
+  border: none;
+  min-width: unset;
+  padding: 0;
 }
 
 img {
-    width: var(--flag-size);
+  width: var(--flag-size);
 }
 
 .btn {
-    padding: 0;
+  padding: 0;
 }
 
 .nav-link.active::after {
-    content: " ";
-    background-color: black;
-    height: 1px;
-    position: absolute;
-    width: 104%;
-    color: black;
-    left: 0;
-    top: var(--active-decoration-top);
-    box-shadow: black 0 3px 5px;
-    margin-left: -2px;
+  content: " ";
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  width: 104%;
+  color: black;
+  left: 0;
+  top: var(--active-decoration-top);
+  box-shadow: black 0 3px 5px;
+  margin-left: -2px;
 }
 
 .dropdown-menu li img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .container-fluid {
-    padding: 0;
+  padding: 0;
 }
 
-#offcanvasNavbar-expand-lg{
-    --bs-offcanvas-bg: rgb(255, 231, 231);
+#offcanvasNavbar-expand-lg {
+  --bs-offcanvas-bg: rgb(255, 231, 231);
 }
 
 .offcanvas-body {
-    display: flex;
-    align-items: center;
-    background-color: rgba(var(--main-bg-color), 0.5);
+  display: flex;
+  align-items: center;
+  background-color: rgba(var(--main-bg-color), 0.5);
 }
 
-.offcanvas-body > div{
-    padding: 0;
+.offcanvas-body > div {
+  padding: 0;
 }
 
-@media (max-width:991px) {
-    .offcanvas-body .flags {
-        display: none;
-    }
+.navbar {
+  padding: 0;
+}
 
-    .offcanvas-body div li {
-        padding-top: 15px;
-    }
+ul .nav-link {
+  margin: 0;
+}
 
-    .offcanvas-body div li a {
-        font-size: var(--menu-points-font-size);
-    }
+@media (max-width: 824px) {
+  .offcanvas-body .flags {
+    display: none;
+  }
+
+  .offcanvas-body div li {
+    padding-top: 15px;
+  }
+
+  .offcanvas-body div li a {
+    font-size: var(--menu-points-font-size);
+  }
+
+  .dropdown li {
+    margin-top: 5px;
+  }
 }
